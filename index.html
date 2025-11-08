@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Principios de Transmisión de Datos</title>
+    <title>Protocolos Modernos y Medios de Transmisión</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -86,33 +86,6 @@
             padding-left: 10px;
         }
         
-        .capa {
-            margin-bottom: 20px;
-            padding: 15px;
-            border: 1px solid #e0e0e0;
-            border-radius: 5px;
-        }
-        
-        .capa h3 {
-            color: #2c3e50;
-            margin-top: 0;
-            display: flex;
-            align-items: center;
-        }
-        
-        .numero-capa {
-            background-color: #3498db;
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 10px;
-            font-weight: bold;
-        }
-        
         .volver-indice {
             text-align: center;
             margin-top: 30px;
@@ -140,39 +113,44 @@
             font-size: 14px;
         }
         
-        .tabla-capas {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
+        .code-block {
+            background-color: #f4f4f4;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            border-radius: 0 5px 5px 0;
+            overflow-x: auto;
         }
         
-        .tabla-capas th, .tabla-capas td {
+        .note {
+            background-color: #e7f3fe;
+            border-left: 4px solid #2196F3;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        
+        table, th, td {
             border: 1px solid #ddd;
+        }
+        
+        th, td {
             padding: 12px;
             text-align: left;
         }
         
-        .tabla-capas th {
+        th {
             background-color: #f2f2f2;
-            color: #2c3e50;
         }
         
-        .tabla-capas tr:nth-child(even) {
+        tr:nth-child(even) {
             background-color: #f9f9f9;
-        }
-        
-        .concepto {
-            margin-bottom: 20px;
-            padding: 15px;
-            border: 1px solid #e0e0e0;
-            border-radius: 5px;
-        }
-        
-        .concepto h3 {
-            color: #2c3e50;
-            margin-top: 0;
-            display: flex;
-            align-items: center;
         }
     </style>
 </head>
@@ -184,275 +162,198 @@
         </div>
     </div>
     
-    <div class="materia">Teleprocesos</div>
-    <h1>Principios de Transmisión de Datos</h1>
+    <div class="materia">Redes y Comunicaciones</div>
+    <h1>Protocolos Modernos, Medios de Transmisión y Comparación con Tecnologías Actuales</h1>
     
     <div class="indice">
         <h2>Índice</h2>
         <ul>
-            <li><a href="#introduccion">1. Introducción a la Transmisión de Datos</a></li>
-            <li><a href="#conceptos-basicos">2. Conceptos Básicos</a></li>
-            <li><a href="#medios-transmision">3. Medios de Transmisión</a></li>
-            <li><a href="#tecnicas-transmision">4. Técnicas de Transmisión</a></li>
-            <li><a href="#modulacion">5. Modulación y Codificación</a></li>
-            <li><a href="#modos-transmision">6. Modos de Transmisión</a></li>
-            <li><a href="#control-errores">7. Control de Errores</a></li>
-            <li><a href="#protocolos">8. Protocolos de Comunicación</a></li>
-            <li><a href="#resumen">9. Resumen</a></li>
+            <li><a href="#introduccion">1. Introducción</a></li>
+            <li><a href="#protocolos">2. Protocolos Modernos de Comunicación</a></li>
+            <li><a href="#medios">3. Medios de Transmisión Actuales</a></li>
+            <li><a href="#comparacion">4. Comparación con Tecnologías Anteriores</a></li>
+            <li><a href="#tendencias">5. Tendencias Futuras</a></li>
+            <li><a href="#conclusion">6. Conclusión</a></li>
         </ul>
     </div>
     
     <section id="introduccion">
-        <h2>1. Introducción a la Transmisión de Datos</h2>
-        <p>La transmisión de datos se refiere al proceso de enviar información de un punto a otro a través de un medio de comunicación. En el contexto de los teleprocesos, esta transmisión permite la comunicación entre sistemas informáticos distribuidos geográficamente.</p>
-        <p>Los principios fundamentales de transmisión de datos son esenciales para comprender cómo funciona la comunicación en redes modernas, desde conexiones locales hasta internet global.</p>
-        <p>Los elementos clave en cualquier sistema de transmisión de datos incluyen:</p>
-        <ol>
-            <li>Emisor (fuente de datos)</li>
-            <li>Receptor (destino de datos)</li>
-            <li>Medio de transmisión</li>
-            <li>Mensaje (datos a transmitir)</li>
-            <li>Protocolo (reglas de comunicación)</li>
-        </ol>
-    </section>
-    
-    <section id="conceptos-basicos">
-        <h2>2. Conceptos Básicos</h2>
-        <div class="concepto">
-            <h3><span class="numero-capa">1</span> Señales y Datos</h3>
-            <p>En transmisión de datos, la información se representa mediante señales que pueden ser analógicas o digitales. Las señales analógicas son continuas y varían suavemente con el tiempo, mientras que las digitales son discretas y toman valores específicos.</p>
-            <p><strong>Características importantes:</strong></p>
-            <ul>
-                <li><strong>Ancho de banda:</strong> Rango de frecuencias que puede transportar un medio</li>
-                <li><strong>Velocidad de transmisión:</strong> Cantidad de datos que se pueden enviar por unidad de tiempo (bps)</li>
-                <li><strong>Latencia:</strong> Tiempo que tarda un dato en viajar desde el emisor al receptor</li>
-                <li><strong>Throughput:</strong> Velocidad real de transferencia de datos</li>
-            </ul>
-        </div>
-        
-        <div class="concepto">
-            <h3><span class="numero-capa">2</span> Transmisión Analógica vs. Digital</h3>
-            <p>La transmisión analógica utiliza señales continuas para representar información, mientras que la digital utiliza señales discretas (0s y 1s). La tendencia actual es hacia la digitalización por sus ventajas en calidad, procesamiento y corrección de errores.</p>
-            <p><strong>Ventajas de la transmisión digital:</strong></p>
-            <ul>
-                <li>Mayor inmunidad al ruido</li>
-                <li>Posibilidad de detección y corrección de errores</li>
-                <li>Facilidad de procesamiento y almacenamiento</li>
-                <li>Mayor seguridad mediante cifrado</li>
-            </ul>
-        </div>
-    </section>
-    
-    <section id="medios-transmision">
-        <h2>3. Medios de Transmisión</h2>
-        <div class="concepto">
-            <h3><span class="numero-capa">1</span> Medios Guiados</h3>
-            <p>Los medios guiados utilizan un canal físico para dirigir las señales desde el emisor hasta el receptor.</p>
-            <p><strong>Tipos principales:</strong></p>
-            <ul>
-                <li><strong>Cable de par trenzado:</strong> Dos conductores aislados entrelazados para reducir interferencias</li>
-                <li><strong>Cable coaxial:</strong> Conductor central rodeado por una malla conductora y aislante</li>
-                <li><strong>Fibra óptica:</strong> Filamentos de vidrio o plástico que transmiten luz</li>
-            </ul>
-            <p><strong>Aplicaciones:</strong> Redes Ethernet, televisión por cable, telefonía, redes de área local.</p>
-        </div>
-        
-        <div class="concepto">
-            <h3><span class="numero-capa">2</span> Medios No Guiados</h3>
-            <p>Los medios no guiados utilizan el espacio libre para transmitir señales sin un conductor físico.</p>
-            <p><strong>Tipos principales:</strong></p>
-            <ul>
-                <li><strong>Ondas de radio:</strong> Transmisión mediante modulación de ondas electromagnéticas</li>
-                <li><strong>Microondas:</strong> Señales de alta frecuencia para comunicación punto a punto</li>
-                <li><strong>Infrarrojos:</strong> Transmisión mediante luz infrarroja, requiere línea de vista</li>
-                <li><strong>Satélites:</strong> Repetidores en órbita para comunicación a larga distancia</li>
-            </ul>
-            <p><strong>Aplicaciones:</strong> Wi-Fi, Bluetooth, comunicaciones móviles, GPS, televisión satelital.</p>
-        </div>
-    </section>
-    
-    <section id="tecnicas-transmision">
-        <h2>4. Técnicas de Transmisión</h2>
-        <div class="concepto">
-            <h3><span class="numero-capa">1</span> Transmisión en Serie y Paralela</h3>
-            <p>En la transmisión en serie, los bits se envían uno tras otro a través de un único canal. En la transmisión paralela, múltiples bits se envían simultáneamente por canales separados.</p>
-            <p><strong>Comparación:</strong></p>
-            <ul>
-                <li><strong>Serie:</strong> Más lenta pero económica, ideal para largas distancias</li>
-                <li><strong>Paralela:</strong> Más rápida pero costosa, limitada a distancias cortas</li>
-            </ul>
-            <p><strong>Ejemplos:</strong> USB y Ethernet usan transmisión serie; buses internos de computadoras usan paralela.</p>
-        </div>
-        
-        <div class="concepto">
-            <h3><span class="numero-capa">2</span> Transmisión Síncrona y Asíncrona</h3>
-            <p>En la transmisión síncrona, emisor y receptor se sincronizan mediante una señal de reloj. En la asíncrona, cada carácter se transmite independientemente con bits de inicio y parada.</p>
-            <p><strong>Características:</strong></p>
-            <ul>
-                <li><strong>Síncrona:</strong> Más eficiente, requiere circuitos de sincronización</li>
-                <li><strong>Asíncrona:</strong> Menos eficiente pero más simple de implementar</li>
-            </ul>
-        </div>
-    </section>
-    
-    <section id="modulacion">
-        <h2>5. Modulación y Codificación</h2>
-        <div class="concepto">
-            <h3><span class="numero-capa">1</span> Técnicas de Modulación</h3>
-            <p>La modulación es el proceso de variar una señal portadora para transmitir información. Es esencial para la transmisión inalámbrica y para multiplexar varias señales.</p>
-            <p><strong>Tipos de modulación analógica:</strong></p>
-            <ul>
-                <li><strong>AM (Amplitud Modulada):</strong> Variación de la amplitud de la portadora</li>
-                <li><strong>FM (Frecuencia Modulada):</strong> Variación de la frecuencia de la portadora</li>
-                <li><strong>PM (Fase Modulada):</strong> Variación de la fase de la portadora</li>
-            </ul>
-            <p><strong>Tipos de modulación digital:</strong></p>
-            <ul>
-                <li><strong>ASK (Amplitude Shift Keying):</strong> Diferentes amplitudes representan bits</li>
-                <li><strong>FSK (Frequency Shift Keying):</strong> Diferentes frecuencias representan bits</li>
-                <li><strong>PSK (Phase Shift Keying):</strong> Diferentes fases representan bits</li>
-            </ul>
-        </div>
-        
-        <div class="concepto">
-            <h3><span class="numero-capa">2</span> Esquemas de Codificación</h3>
-            <p>La codificación transforma datos digitales en señales adecuadas para la transmisión. Diferentes esquemas ofrecen ventajas en sincronización, detección de errores y eficiencia espectral.</p>
-            <p><strong>Esquemas comunes:</strong></p>
-            <ul>
-                <li><strong>NRZ (Non-Return to Zero):</strong> Nivel alto para 1, nivel bajo para 0</li>
-                <li><strong>Manchester:</strong> Transición en medio de cada bit para sincronización</li>
-                <li><strong>4B/5B:</strong> Codificación que garantiza transiciones frecuentes</li>
-            </ul>
-        </div>
-    </section>
-    
-    <section id="modos-transmision">
-        <h2>6. Modos de Transmisión</h2>
-        <div class="concepto">
-            <h3><span class="numero-capa">1</span> Simplex, Half-Duplex y Full-Duplex</h3>
-            <p>Estos modos definen la dirección del flujo de información entre dispositivos comunicantes.</p>
-            <p><strong>Simplex:</strong> Comunicación unidireccional (ej: televisión, radio)</p>
-            <p><strong>Half-Duplex:</strong> Comunicación bidireccional pero no simultánea (ej: walkie-talkie)</p>
-            <p><strong>Full-Duplex:</strong> Comunicación bidireccional simultánea (ej: teléfono, videollamada)</p>
-        </div>
-        
-        <div class="concepto">
-            <h3><span class="numero-capa">2</span> Transmisión Punto a Punto y Multipunto</h3>
-            <p>La transmisión punto a punto establece un enlace dedicado entre dos dispositivos. La multipunto permite que múltiples dispositivos compartan el mismo medio de comunicación.</p>
-            <p><strong>Ejemplos:</strong></p>
-            <ul>
-                <li><strong>Punto a punto:</strong> Conexión directa entre dos computadoras</li>
-                <li><strong>Multipunto:</strong> Red Ethernet con múltiples dispositivos</li>
-            </ul>
-        </div>
-    </section>
-    
-    <section id="control-errores">
-        <h2>7. Control de Errores</h2>
-        <div class="concepto">
-            <h3><span class="numero-capa">1</span> Detección de Errores</h3>
-            <p>Las técnicas de detección de errores permiten identificar si los datos recibidos han sido alterados durante la transmisión.</p>
-            <p><strong>Métodos comunes:</strong></p>
-            <ul>
-                <li><strong>Bit de paridad:</strong> Añade un bit para hacer par/impar el número de 1s</li>
-                <li><strong>Checksum:</strong> Suma de verificación de los datos transmitidos</li>
-                <li><strong>CRC (Cyclic Redundancy Check):</strong> División polinomial para generar código verificador</li>
-            </ul>
-        </div>
-        
-        <div class="concepto">
-            <h3><span class="numero-capa">2</span> Corrección de Errores</h3>
-            <p>Las técnicas de corrección permiten recuperar los datos originales incluso cuando se han producido errores en la transmisión.</p>
-            <p><strong>Métodos comunes:</strong></p>
-            <ul>
-                <li><strong>ARQ (Automatic Repeat Request):</strong> Retransmisión de datos erróneos</li>
-                <li><strong>FEC (Forward Error Correction):</strong> Uso de códigos correctores (Hamming, Reed-Solomon)</li>
-            </ul>
-        </div>
+        <h2>1. Introducción</h2>
+        <p>Las redes de comunicación han evolucionado significativamente en las últimas décadas, impulsadas por la creciente demanda de ancho de banda, la necesidad de mayor seguridad y la proliferación de dispositivos conectados. Los protocolos modernos y los medios de transmisión constituyen la base de esta transformación digital.</p>
+        <p>Este informe analiza los protocolos de comunicación más relevantes en la actualidad, los medios de transmisión utilizados y realiza una comparación con tecnologías anteriores para comprender mejor las ventajas y limitaciones de las soluciones actuales.</p>
     </section>
     
     <section id="protocolos">
-        <h2>8. Protocolos de Comunicación</h2>
-        <div class="concepto">
-            <h3><span class="numero-capa">1</span> Funciones de los Protocolos</h3>
-            <p>Los protocolos definen las reglas y procedimientos para la comunicación entre dispositivos. Establecen formatos de datos, secuencias de control y métodos de recuperación de errores.</p>
-            <p><strong>Funciones principales:</strong></p>
-            <ul>
-                <li>Segmentación y ensamblaje de datos</li>
-                <li>Encapsulamiento</li>
-                <li>Control de flujo</li>
-                <li>Control de errores</li>
-                <li>Sincronización</li>
-                <li>Direccionamiento</li>
-                <li>Multiplexación</li>
-            </ul>
+        <h2>2. Protocolos Modernos de Comunicación</h2>
+        <p>Los protocolos de comunicación definen las reglas y formatos para el intercambio de información entre dispositivos en una red. Los protocolos modernos han evolucionado para satisfacer las necesidades actuales de velocidad, seguridad y eficiencia.</p>
+        
+        <h3>Protocolos de Capa de Aplicación</h3>
+        <p>Los protocolos de aplicación han evolucionado para ofrecer mejores experiencias de usuario:</p>
+        <ul>
+            <li><strong>HTTP/2 y HTTP/3:</strong> Mejoras significativas en velocidad y eficiencia respecto a HTTP/1.1</li>
+            <li><strong>QUIC:</strong> Protocolo de transporte desarrollado por Google que reduce la latencia</li>
+            <li><strong>MQTT:</strong> Protocolo ligero ideal para IoT (Internet de las Cosas)</li>
+            <li><strong>gRPC:</strong> Framework moderno de llamadas a procedimientos remotos</li>
+        </ul>
+        
+        <h3>Protocolos de Seguridad</h3>
+        <p>La seguridad es una prioridad en las comunicaciones modernas:</p>
+        <div class="code-block">
+            // Ejemplo de configuración TLS 1.3 (más seguro que versiones anteriores)
+            SSLProtocol TLSv1.3
+            SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384
         </div>
         
-        <div class="concepto">
-            <h3><span class="numero-capa">2</span> Protocolos Comunes</h3>
-            <p>Existen numerosos protocolos estandarizados para diferentes capas y aplicaciones de comunicación.</p>
-            <p><strong>Ejemplos importantes:</strong></p>
-            <ul>
-                <li><strong>TCP/IP:</strong> Conjunto de protocolos para internet</li>
-                <li><strong>HTTP/HTTPS:</strong> Protocolos para transferencia web</li>
-                <li><strong>FTP:</strong> Protocolo para transferencia de archivos</li>
-                <li><strong>SMTP/POP/IMAP:</strong> Protocolos para correo electrónico</li>
-            </ul>
+        <h3>Protocolos de Red</h3>
+        <p>IPv6 se ha convertido en el estándar para abordar la escasez de direcciones IPv4:</p>
+        <div class="note">
+            <strong>Nota:</strong> La implementación de IPv6 permite aproximadamente 3.4×10^38 direcciones únicas, resolviendo el problema de agotamiento de direcciones IPv4.
         </div>
     </section>
     
-    <section id="resumen">
-        <h2>9. Resumen</h2>
-        <p>Los principios de transmisión de datos constituyen la base de todas las comunicaciones modernas. Comprender estos conceptos es esencial para diseñar, implementar y mantener sistemas de teleprocesos eficientes y confiables.</p>
+    <section id="medios">
+        <h2>3. Medios de Transmisión Actuales</h2>
+        <p>Los medios de transmisión son los canales físicos a través de los cuales se propagan las señales de comunicación. La elección del medio afecta directamente el rendimiento de la red.</p>
         
-        <table class="tabla-capas">
-            <thead>
-                <tr>
-                    <th>Concepto</th>
-                    <th>Definición</th>
-                    <th>Ejemplos</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Señal Analógica</td>
-                    <td>Señal continua que varía suavemente con el tiempo</td>
-                    <td>Voz humana, señales de radio AM/FM</td>
-                </tr>
-                <tr>
-                    <td>Señal Digital</td>
-                    <td>Señal discreta con valores específicos (0s y 1s)</td>
-                    <td>Datos informáticos, comunicaciones Ethernet</td>
-                </tr>
-                <tr>
-                    <td>Ancho de Banda</td>
-                    <td>Rango de frecuencias que puede transportar un medio</td>
-                    <td>Ethernet: 10/100/1000 Mbps, Wi-Fi: 2.4/5 GHz</td>
-                </tr>
-                <tr>
-                    <td>Modulación</td>
-                    <td>Proceso de variar una señal portadora para transmitir información</td>
-                    <td>AM, FM, QAM, PSK</td>
-                </tr>
-                <tr>
-                    <td>Medios Guiados</td>
-                    <td>Transmisión a través de un conductor físico</td>
-                    <td>Cable UTP, fibra óptica, coaxial</td>
-                </tr>
-                <tr>
-                    <td>Medios No Guiados</td>
-                    <td>Transmisión a través del espacio sin conductor físico</td>
-                    <td>Wi-Fi, Bluetooth, microondas, satélites</td>
-                </tr>
-                <tr>
-                    <td>Protocolo</td>
-                    <td>Conjunto de reglas para la comunicación entre dispositivos</td>
-                    <td>TCP/IP, HTTP, FTP, SMTP</td>
-                </tr>
-            </tbody>
+        <h3>Medios Guiados</h3>
+        <p>Los medios guiados utilizan un canal físico para dirigir las señales:</p>
+        <table>
+            <tr>
+                <th>Medio</th>
+                <th>Velocidad Máxima</th>
+                <th>Ventajas</th>
+                <th>Limitaciones</th>
+            </tr>
+            <tr>
+                <td>Fibra Óptica</td>
+                <td>Hasta 100+ Gbps</td>
+                <td>Alto ancho de banda, inmunidad a interferencias</td>
+                <td>Costo de instalación, fragilidad</td>
+            </tr>
+            <tr>
+                <td>Cobre (Cat 6A/7/8)</td>
+                <td>Hasta 40 Gbps</td>
+                <td>Compatibilidad, costo moderado</td>
+                <td>Limitaciones de distancia, susceptibilidad a EMI</td>
+            </tr>
         </table>
         
-        <p>La evolución continua de las tecnologías de transmisión de datos ha permitido el desarrollo de redes cada vez más rápidas, confiables y accesibles, transformando la manera en que nos comunicamos y accedemos a la información en el mundo moderno.</p>
+        <h3>Medios No Guiados</h3>
+        <p>Las tecnologías inalámbricas han experimentado un desarrollo acelerado:</p>
+        <ul>
+            <li><strong>Wi-Fi 6 (802.11ax):</strong> Mayor eficiencia en entornos congestionados</li>
+            <li><strong>5G:</strong> Baja latencia y alta velocidad para dispositivos móviles</li>
+            <li><strong>Li-Fi:</strong> Comunicación mediante luz visible (en desarrollo)</li>
+            <li><strong>Satélites LEO:</strong> Constelaciones como Starlink para cobertura global</li>
+        </ul>
+        
+        <div class="note">
+            <strong>Nota:</strong> La fibra óptica sigue siendo el medio más eficiente para transmisiones de larga distancia y alto ancho de banda, mientras que las tecnologías inalámbricas ofrecen mayor flexibilidad y movilidad.
+        </div>
+    </section>
+    
+    <section id="comparacion">
+        <h2>4. Comparación con Tecnologías Anteriores</h2>
+        <p>La evolución de los protocolos y medios de transmisión ha traído mejoras significativas en rendimiento, seguridad y eficiencia.</p>
+        
+        <h3>Comparativa de Velocidades</h3>
+        <table>
+            <tr>
+                <th>Tecnología</th>
+                <th>Velocidad Máxima</th>
+                <th>Latencia Típica</th>
+                <th>Año de Introducción</th>
+            </tr>
+            <tr>
+                <td>Dial-up (V.90)</td>
+                <td>56 Kbps</td>
+                <td>100-200 ms</td>
+                <td>1999</td>
+            </tr>
+            <tr>
+                <td>ADSL</td>
+                <td>24 Mbps</td>
+                <td>10-40 ms</td>
+                <td>1999</td>
+            </tr>
+            <tr>
+                <td>Wi-Fi 4 (802.11n)</td>
+                <td>600 Mbps</td>
+                <td>5-20 ms</td>
+                <td>2009</td>
+            </tr>
+            <tr>
+                <td>Fibra Óptica (GPON)</td>
+                <td>2.5 Gbps</td>
+                <td>1-5 ms</td>
+                <td>2010</td>
+            </tr>
+            <tr>
+                <td>5G</td>
+                <td>10-20 Gbps</td>
+                <td>1-10 ms</td>
+                <td>2019</td>
+            </tr>
+            <tr>
+                <td>Wi-Fi 6E</td>
+                <td>9.6 Gbps</td>
+                <td>1-5 ms</td>
+                <td>2020</td>
+            </tr>
+        </table>
+        
+        <h3>Mejoras en Protocolos</h3>
+        <p>Los protocolos modernos ofrecen ventajas significativas:</p>
+        <div class="code-block">
+            // HTTP/1.1 vs HTTP/2 vs HTTP/3
+            HTTP/1.1: Múltiples conexiones TCP, head-of-line blocking
+            HTTP/2: Multiplexación en una sola conexión, compresión de cabeceras
+            HTTP/3: Utiliza QUIC sobre UDP, elimina head-of-line blocking a nivel de transporte
+        </div>
+        
+        <h3>Evolución de la Seguridad</h3>
+        <p>La seguridad ha pasado de ser un añadido a un componente fundamental:</p>
+        <ul>
+            <li><strong>WEP → WPA → WPA2 → WPA3:</strong> Mejoras continuas en seguridad Wi-Fi</li>
+            <li><strong>SSL → TLS 1.0 → TLS 1.3:</strong> Reducción de vulnerabilidades y mejora del rendimiento</li>
+            <li><strong>Autenticación multifactor:</strong> De contraseñas simples a sistemas biométricos y MFA</li>
+        </ul>
+    </section>
+    
+    <section id="tendencias">
+        <h2>5. Tendencias Futuras</h2>
+        <p>El panorama de las comunicaciones continúa evolucionando hacia tecnologías más rápidas, seguras y eficientes.</p>
+        
+        <h3>6G y Más Allá</h3>
+        <p>Mientras 5G se despliega globalmente, ya se investiga la próxima generación:</p>
+        <ul>
+            <li>Velocidades teóricas de hasta 1 Tbps</li>
+            <li>Integración con inteligencia artificial para optimización de red</li>
+            <li>Comunicaciones holográficas y táctiles</li>
+            <li>Redes no terrestres (NTN) con integración satelital</li>
+        </ul>
+        
+        <h3>Computación Cuántica y Criptografía</h3>
+        <p>La computación cuántica plantea desafíos y oportunidades:</p>
+        <div class="note">
+            <strong>Nota:</strong> Los algoritmos criptográficos actuales podrían volverse vulnerables ante computadoras cuánticas suficientemente potentes, impulsando el desarrollo de criptografía post-cuántica.
+        </div>
+        
+        <h3>Internet de las Cosas (IoT) Masivo</h3>
+        <p>La proliferación de dispositivos IoT requiere:</p>
+        <ul>
+            <li>Protocolos más eficientes energéticamente</li>
+            <li>Mayor escalabilidad en las redes</li>
+            <li>Soluciones de seguridad adaptadas a dispositivos con recursos limitados</li>
+            <li>Tecnologías como NB-IoT y LTE-M para conectividad de bajo consumo</li>
+        </ul>
+    </section>
+    
+    <section id="conclusion">
+        <h2>6. Conclusión</h2>
+        <p>Los protocolos modernos y medios de transmisión han experimentado una evolución notable, permitiendo velocidades de transferencia impensables hace apenas una década, junto con mejoras sustanciales en seguridad, eficiencia y confiabilidad.</p>
+        <p>La comparación con tecnologías anteriores demuestra el progreso exponencial en capacidades de red, mientras que las tendencias futuras apuntan hacia una integración más profunda con inteligencia artificial, computación cuántica y la conexión ubicua de dispositivos a través de IoT.</p>
+        <p>Esta evolución continua es fundamental para soportar las aplicaciones emergentes que definirán la próxima era digital, desde realidad extendida hasta vehículos autónomos y ciudades inteligentes.</p>
     </section>
     
     <div class="volver-indice">
@@ -460,7 +361,7 @@
     </div>
     
     <footer>
-        <p>Informe sobre Principios de Transmisión de Datos para Teleprocesos - Jonathan Blanco</p>
+        <p>Informe sobre Protocolos Modernos y Medios de Transmisión - Jonathan Blanco</p>
     </footer>
 </body>
 </html>
