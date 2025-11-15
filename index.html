@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Protocolos Modernos y Medios de Transmisión</title>
+    <title>WebSocket y MQTT para Comunicación en Tiempo Real</title>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -130,27 +130,108 @@
             margin: 15px 0;
         }
         
-        table {
-            width: 100%;
-            border-collapse: collapse;
+        .warning {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 10px 15px;
             margin: 15px 0;
         }
         
-        table, th, td {
-            border: 1px solid #ddd;
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
         }
         
-        th, td {
+        .comparison-table th, .comparison-table td {
+            border: 1px solid #ddd;
             padding: 12px;
             text-align: left;
         }
         
-        th {
+        .comparison-table th {
             background-color: #f2f2f2;
+            color: #2c3e50;
         }
         
-        tr:nth-child(even) {
+        .comparison-table tr:nth-child(even) {
             background-color: #f9f9f9;
+        }
+        
+        .protocol-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+        
+        .websocket-badge {
+            background-color: #e74c3c;
+            color: white;
+        }
+        
+        .mqtt-badge {
+            background-color: #27ae60;
+            color: white;
+        }
+        
+        .architecture-diagram {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        
+        .architecture-box {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .arrow {
+            font-size: 20px;
+            margin: 0 10px;
+            color: #3498db;
+        }
+        
+        .qos-levels {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+        
+        .qos-level {
+            flex: 1;
+            padding: 15px;
+            margin: 0 5px;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .qos-level h4 {
+            margin-top: 0;
+            color: #2c3e50;
+        }
+        
+        .qos-0 {
+            border-top: 4px solid #e74c3c;
+        }
+        
+        .qos-1 {
+            border-top: 4px solid #f39c12;
+        }
+        
+        .qos-2 {
+            border-top: 4px solid #27ae60;
         }
     </style>
 </head>
@@ -162,198 +243,616 @@
         </div>
     </div>
     
-    <div class="materia">Redes y Comunicaciones</div>
-    <h1>Protocolos Modernos, Medios de Transmisión y Comparación con Tecnologías Actuales</h1>
+    <div class="materia">Inteligencia Artificial</div>
+    <h1>WebSocket y MQTT para Comunicación en Tiempo Real</h1>
     
     <div class="indice">
         <h2>Índice</h2>
         <ul>
             <li><a href="#introduccion">1. Introducción</a></li>
-            <li><a href="#protocolos">2. Protocolos Modernos de Comunicación</a></li>
-            <li><a href="#medios">3. Medios de Transmisión Actuales</a></li>
-            <li><a href="#comparacion">4. Comparación con Tecnologías Anteriores</a></li>
-            <li><a href="#tendencias">5. Tendencias Futuras</a></li>
-            <li><a href="#conclusion">6. Conclusión</a></li>
+            <li><a href="#websocket">2. WebSocket: Comunicación Bidireccional</a></li>
+            <li><a href="#mqtt">3. MQTT: Protocolo para IoT y ML</a></li>
+            <li><a href="#comparacion">4. Comparación WebSocket vs MQTT</a></li>
+            <li><a href="#implementacion-websocket">5. Implementación con WebSocket</a></li>
+            <li><a href="#implementacion-mqtt">6. Implementación con MQTT</a></li>
+            <li><a href="#casos-uso-ia">7. Casos de Uso en IA</a></li>
+            <li><a href="#conclusion">8. Conclusión</a></li>
         </ul>
     </div>
     
     <section id="introduccion">
         <h2>1. Introducción</h2>
-        <p>Las redes de comunicación han evolucionado significativamente en las últimas décadas, impulsadas por la creciente demanda de ancho de banda, la necesidad de mayor seguridad y la proliferación de dispositivos conectados. Los protocolos modernos y los medios de transmisión constituyen la base de esta transformación digital.</p>
-        <p>Este informe analiza los protocolos de comunicación más relevantes en la actualidad, los medios de transmisión utilizados y realiza una comparación con tecnologías anteriores para comprender mejor las ventajas y limitaciones de las soluciones actuales.</p>
-    </section>
-    
-    <section id="protocolos">
-        <h2>2. Protocolos Modernos de Comunicación</h2>
-        <p>Los protocolos de comunicación definen las reglas y formatos para el intercambio de información entre dispositivos en una red. Los protocolos modernos han evolucionado para satisfacer las necesidades actuales de velocidad, seguridad y eficiencia.</p>
+        <p>En aplicaciones modernas de Inteligencia Artificial, la comunicación en tiempo real es esencial para escenarios como inferencia en streaming, dashboards de monitoreo, sistemas de recomendación en vivo y dispositivos IoT. WebSocket y MQTT son dos protocolos fundamentales que permiten esta comunicación bidireccional y eficiente.</p>
         
-        <h3>Protocolos de Capa de Aplicación</h3>
-        <p>Los protocolos de aplicación han evolucionado para ofrecer mejores experiencias de usuario:</p>
+        <p>Estos protocolos superan las limitaciones de HTTP para aplicaciones que requieren:</p>
         <ul>
-            <li><strong>HTTP/2 y HTTP/3:</strong> Mejoras significativas en velocidad y eficiencia respecto a HTTP/1.1</li>
-            <li><strong>QUIC:</strong> Protocolo de transporte desarrollado por Google que reduce la latencia</li>
-            <li><strong>MQTT:</strong> Protocolo ligero ideal para IoT (Internet de las Cosas)</li>
-            <li><strong>gRPC:</strong> Framework moderno de llamadas a procedimientos remotos</li>
+            <li>Actualizaciones en tiempo real</li>
+            <li>Conexiones persistentes</li>
+            <li>Baja latencia</li>
+            <li>Comunicación bidireccional</li>
+            <li>Eficiencia en el uso de recursos</li>
         </ul>
         
-        <h3>Protocolos de Seguridad</h3>
-        <p>La seguridad es una prioridad en las comunicaciones modernas:</p>
+        <div class="note">
+            <strong>Nota:</strong> Mientras HTTP es ideal para request-response, WebSocket y MQTT están diseñados específicamente para comunicación continua y en tiempo real.
+        </div>
+    </section>
+    
+    <section id="websocket">
+        <h2>2. WebSocket: Comunicación Bidireccional</h2>
+        
+        <h3>¿Qué es WebSocket?</h3>
+        <p>WebSocket es un protocolo de comunicación que proporciona canales de comunicación full-duplex sobre una única conexión TCP. A diferencia de HTTP, WebSocket mantiene la conexión abierta, permitiendo que el servidor envíe datos al cliente sin que este tenga que solicitarlos.</p>
+        
+        <div class="architecture-diagram">
+            <div class="architecture-box">Cliente</div>
+            <div class="arrow">⇄</div>
+            <div class="architecture-box">Servidor WebSocket</div>
+            <div class="arrow">⇄</div>
+            <div class="architecture-box">Backend de IA</div>
+        </div>
+        
+        <h3>Características Principales</h3>
+        <ul>
+            <li><strong>Conexión persistente:</strong> Una vez establecida, la conexión permanece abierta</li>
+            <li><strong>Bidireccional:</strong> Cliente y servidor pueden enviar mensajes en cualquier momento</li>
+            <li><strong>Baja sobrecarga:</strong> Menos overhead que HTTP para mensajes frecuentes</li>
+            <li><strong>Compatible con web:</strong> Soporte nativo en navegadores modernos</li>
+            <li><strong>Subprotocolos:</strong> Permite definir protocolos personalizados sobre WebSocket</li>
+        </ul>
+        
+        <h3>Handshake WebSocket</h3>
+        <p>La conexión WebSocket comienza con un handshake HTTP que se actualiza a WebSocket:</p>
         <div class="code-block">
-            // Ejemplo de configuración TLS 1.3 (más seguro que versiones anteriores)
-            SSLProtocol TLSv1.3
-            SSLCipherSuite ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384
-        </div>
-        
-        <h3>Protocolos de Red</h3>
-        <p>IPv6 se ha convertido en el estándar para abordar la escasez de direcciones IPv4:</p>
-        <div class="note">
-            <strong>Nota:</strong> La implementación de IPv6 permite aproximadamente 3.4×10^38 direcciones únicas, resolviendo el problema de agotamiento de direcciones IPv4.
+            // Solicitud del cliente<br>
+            GET /chat HTTP/1.1<br>
+            Host: server.example.com<br>
+            Upgrade: websocket<br>
+            Connection: Upgrade<br>
+            Sec-WebSocket-Key: dGhlIHNhbXBsZSBub25jZQ==<br>
+            Sec-WebSocket-Version: 13<br><br>
+            
+            // Respuesta del servidor<br>
+            HTTP/1.1 101 Switching Protocols<br>
+            Upgrade: websocket<br>
+            Connection: Upgrade<br>
+            Sec-WebSocket-Accept: s3pPLMBiTxaQ9kYGzzhZRbK+xOo=
         </div>
     </section>
     
-    <section id="medios">
-        <h2>3. Medios de Transmisión Actuales</h2>
-        <p>Los medios de transmisión son los canales físicos a través de los cuales se propagan las señales de comunicación. La elección del medio afecta directamente el rendimiento de la red.</p>
+    <section id="mqtt">
+        <h2>3. MQTT: Protocolo para IoT y Machine Learning</h2>
         
-        <h3>Medios Guiados</h3>
-        <p>Los medios guiados utilizan un canal físico para dirigir las señales:</p>
-        <table>
-            <tr>
-                <th>Medio</th>
-                <th>Velocidad Máxima</th>
-                <th>Ventajas</th>
-                <th>Limitaciones</th>
-            </tr>
-            <tr>
-                <td>Fibra Óptica</td>
-                <td>Hasta 100+ Gbps</td>
-                <td>Alto ancho de banda, inmunidad a interferencias</td>
-                <td>Costo de instalación, fragilidad</td>
-            </tr>
-            <tr>
-                <td>Cobre (Cat 6A/7/8)</td>
-                <td>Hasta 40 Gbps</td>
-                <td>Compatibilidad, costo moderado</td>
-                <td>Limitaciones de distancia, susceptibilidad a EMI</td>
-            </tr>
-        </table>
+        <h3>¿Qué es MQTT?</h3>
+        <p>MQTT (Message Queuing Telemetry Transport) es un protocolo de mensajería publish/subscribe extremadamente ligero, diseñado para dispositivos con recursos limitados y redes con ancho de banda reducido.</p>
         
-        <h3>Medios No Guiados</h3>
-        <p>Las tecnologías inalámbricas han experimentado un desarrollo acelerado:</p>
+        <div class="architecture-diagram">
+            <div class="architecture-box">Publicadores<br/><small>(Dispositivos IoT, Sensores)</small></div>
+            <div class="arrow">↓</div>
+            <div class="architecture-box">Broker MQTT</div>
+            <div class="arrow">↓</div>
+            <div class="architecture-box">Suscriptores<br/><small>(Aplicaciones, Dashboards)</small></div>
+        </div>
+        
+        <h3>Conceptos Fundamentales</h3>
         <ul>
-            <li><strong>Wi-Fi 6 (802.11ax):</strong> Mayor eficiencia en entornos congestionados</li>
-            <li><strong>5G:</strong> Baja latencia y alta velocidad para dispositivos móviles</li>
-            <li><strong>Li-Fi:</strong> Comunicación mediante luz visible (en desarrollo)</li>
-            <li><strong>Satélites LEO:</strong> Constelaciones como Starlink para cobertura global</li>
+            <li><strong>Broker:</strong> Servidor central que recibe y distribuye mensajes</li>
+            <li><strong>Clientes:</strong> Dispositivos o aplicaciones que publican o se suscriben a mensajes</li>
+            <li><strong>Tópicos:</strong> Canales temáticos para organizar mensajes (ej: "sensors/temperature")</li>
+            <li><strong>Publicar/Suscribir:</strong> Patrón donde los publicadores envían mensajes a tópicos y los suscriptores reciben mensajes de tópicos de interés</li>
         </ul>
         
-        <div class="note">
-            <strong>Nota:</strong> La fibra óptica sigue siendo el medio más eficiente para transmisiones de larga distancia y alto ancho de banda, mientras que las tecnologías inalámbricas ofrecen mayor flexibilidad y movilidad.
+        <h3>Niveles de Calidad de Servicio (QoS)</h3>
+        
+        <div class="qos-levels">
+            <div class="qos-level qos-0">
+                <h4>QoS 0: Máximo una vez</h4>
+                <p>Mensaje se envía sin confirmación. Posible pérdida de mensajes.</p>
+                <p><strong>Uso:</strong> Datos no críticos, métricas</p>
+            </div>
+            <div class="qos-level qos-1">
+                <h4>QoS 1: Al menos una vez</h4>
+                <p>Confirmación de recepción. Posibles duplicados.</p>
+                <p><strong>Uso:</strong> Datos importantes</p>
+            </div>
+            <div class="qos-level qos-2">
+                <h4>QoS 2: Exactamente una vez</h4>
+                <p>Garantiza entrega exactamente una vez. Mayor overhead.</p>
+                <p><strong>Uso:</strong> Transacciones críticas</p>
+            </div>
         </div>
+        
+        <h3>Características de MQTT 5.0</h3>
+        <ul>
+            <li><strong>Mejor manejo de errores:</strong> Códigos de razón detallados</li>
+            <li><strong>Propiedades de usuario:</strong> Metadatos personalizados en mensajes</li>
+            <li><strong>Flujo de mensajes:</strong> Control de cantidad de mensajes en vuelo</li>
+            <li><strong>Compartir suscripciones:</strong> Múltiples clientes pueden compartir carga</li>
+        </ul>
     </section>
     
     <section id="comparacion">
-        <h2>4. Comparación con Tecnologías Anteriores</h2>
-        <p>La evolución de los protocolos y medios de transmisión ha traído mejoras significativas en rendimiento, seguridad y eficiencia.</p>
+        <h2>4. Comparación WebSocket vs MQTT</h2>
         
-        <h3>Comparativa de Velocidades</h3>
-        <table>
-            <tr>
-                <th>Tecnología</th>
-                <th>Velocidad Máxima</th>
-                <th>Latencia Típica</th>
-                <th>Año de Introducción</th>
-            </tr>
-            <tr>
-                <td>Dial-up (V.90)</td>
-                <td>56 Kbps</td>
-                <td>100-200 ms</td>
-                <td>1999</td>
-            </tr>
-            <tr>
-                <td>ADSL</td>
-                <td>24 Mbps</td>
-                <td>10-40 ms</td>
-                <td>1999</td>
-            </tr>
-            <tr>
-                <td>Wi-Fi 4 (802.11n)</td>
-                <td>600 Mbps</td>
-                <td>5-20 ms</td>
-                <td>2009</td>
-            </tr>
-            <tr>
-                <td>Fibra Óptica (GPON)</td>
-                <td>2.5 Gbps</td>
-                <td>1-5 ms</td>
-                <td>2010</td>
-            </tr>
-            <tr>
-                <td>5G</td>
-                <td>10-20 Gbps</td>
-                <td>1-10 ms</td>
-                <td>2019</td>
-            </tr>
-            <tr>
-                <td>Wi-Fi 6E</td>
-                <td>9.6 Gbps</td>
-                <td>1-5 ms</td>
-                <td>2020</td>
-            </tr>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Característica</th>
+                    <th>WebSocket</th>
+                    <th>MQTT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Paradigma</strong></td>
+                    <td>Conexión persistente bidireccional</td>
+                    <td>Publicar/Suscribir con broker</td>
+                </tr>
+                <tr>
+                    <td><strong>Overhead</strong></td>
+                    <td>Bajo (después del handshake)</td>
+                    <td>Muy bajo (2 bytes de header)</td>
+                </tr>
+                <tr>
+                    <td><strong>Escalabilidad</strong></td>
+                    <td>Buena para conexiones directas</td>
+                    <td>Excelente con arquitectura broker</td>
+                </tr>
+                <tr>
+                    <td><strong>Navegadores</strong></td>
+                    <td>Soporte nativo</td>
+                    <td>Requiere biblioteca JavaScript</td>
+                </tr>
+                <tr>
+                    <td><strong>Calidad de Servicio</strong></td>
+                    <td>No tiene QoS incorporado</td>
+                    <td>Tres niveles de QoS</td>
+                </tr>
+                <tr>
+                    <td><strong>Mensajes Retenidos</strong></td>
+                    <td>No soportado</td>
+                    <td>Sí, último mensaje por tópico</td>
+                </tr>
+                <tr>
+                    <td><strong>Will Message</strong></td>
+                    <td>No soportado</td>
+                    <td>Mensaje de última voluntad</td>
+                </tr>
+                <tr>
+                    <td><strong>Casos Ideales</strong></td>
+                    <td>Aplicaciones web en tiempo real, juegos, chat</td>
+                    <td>IoT, dispositivos móviles, ML en edge</td>
+                </tr>
+            </tbody>
         </table>
         
-        <h3>Mejoras en Protocolos</h3>
-        <p>Los protocolos modernos ofrecen ventajas significativas:</p>
-        <div class="code-block">
-            // HTTP/1.1 vs HTTP/2 vs HTTP/3
-            HTTP/1.1: Múltiples conexiones TCP, head-of-line blocking
-            HTTP/2: Multiplexación en una sola conexión, compresión de cabeceras
-            HTTP/3: Utiliza QUIC sobre UDP, elimina head-of-line blocking a nivel de transporte
+        <h3>¿Cuándo usar cada uno?</h3>
+        
+        <div class="note">
+            <span class="protocol-badge websocket-badge">WEBSOCKET</span>
+            <strong>Elige WebSocket cuando:</strong>
+            <ul>
+                <li>Necesitas comunicación directa cliente-servidor</li>
+                <li>Trabajas principalmente con navegadores web</li>
+                <li>Requieres control total sobre la conexión</li>
+                <li>Desarrollas aplicaciones interactivas en tiempo real</li>
+            </ul>
         </div>
         
-        <h3>Evolución de la Seguridad</h3>
-        <p>La seguridad ha pasado de ser un añadido a un componente fundamental:</p>
-        <ul>
-            <li><strong>WEP → WPA → WPA2 → WPA3:</strong> Mejoras continuas en seguridad Wi-Fi</li>
-            <li><strong>SSL → TLS 1.0 → TLS 1.3:</strong> Reducción de vulnerabilidades y mejora del rendimiento</li>
-            <li><strong>Autenticación multifactor:</strong> De contraseñas simples a sistemas biométricos y MFA</li>
-        </ul>
+        <div class="note">
+            <span class="protocol-badge mqtt-badge">MQTT</span>
+            <strong>Elige MQTT cuando:</strong>
+            <ul>
+                <li>Tienes muchos dispositivos o clientes</li>
+                <li>El ancho de banda es limitado</li>
+                <li>Necesitas diferentes niveles de garantía de entrega</li>
+                <li>Trabajas con arquitecturas desconectadas o asíncronas</li>
+                <li>Implementas sistemas de IoT o edge computing</li>
+            </ul>
+        </div>
+        
+        <div class="warning">
+            <strong>Nota importante:</strong> WebSocket y MQTT no son mutuamente excluyentes. Es común usar MQTT sobre WebSocket para aplicaciones web que necesitan las características de MQTT.
+        </div>
     </section>
     
-    <section id="tendencias">
-        <h2>5. Tendencias Futuras</h2>
-        <p>El panorama de las comunicaciones continúa evolucionando hacia tecnologías más rápidas, seguras y eficientes.</p>
+    <section id="implementacion-websocket">
+        <h2>5. Implementación con WebSocket</h2>
         
-        <h3>6G y Más Allá</h3>
-        <p>Mientras 5G se despliega globalmente, ya se investiga la próxima generación:</p>
-        <ul>
-            <li>Velocidades teóricas de hasta 1 Tbps</li>
-            <li>Integración con inteligencia artificial para optimización de red</li>
-            <li>Comunicaciones holográficas y táctiles</li>
-            <li>Redes no terrestres (NTN) con integración satelital</li>
-        </ul>
-        
-        <h3>Computación Cuántica y Criptografía</h3>
-        <p>La computación cuántica plantea desafíos y oportunidades:</p>
-        <div class="note">
-            <strong>Nota:</strong> Los algoritmos criptográficos actuales podrían volverse vulnerables ante computadoras cuánticas suficientemente potentes, impulsando el desarrollo de criptografía post-cuántica.
+        <h3>Servidor WebSocket con Python (websockets)</h3>
+        <div class="code-block">
+            import asyncio<br>
+            import websockets<br>
+            import json<br>
+            from model_inference import MLModel<br><br>
+            
+            # Cargar modelo de ML<br>
+            model = MLModel.load('model.h5')<br><br>
+            
+            async def handle_websocket(websocket, path):<br>
+            &nbsp;&nbsp;print("Cliente conectado")<br>
+            &nbsp;&nbsp;try:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;async for message in websocket:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Procesar mensaje recibido<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data = json.loads(message)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if data['type'] == 'prediction':<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Realizar inferencia<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;features = data['features']<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prediction = model.predict(features)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Enviar respuesta<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;response = {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'type': 'prediction_result',<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'prediction': prediction.tolist(),<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'request_id': data.get('request_id')<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;await websocket.send(json.dumps(response))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;elif data['type'] == 'subscribe_updates':<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;# Enviar actualizaciones periódicas<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while True:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;latest_data = get_latest_sensor_data()<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prediction = model.predict(latest_data)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;update = {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'type': 'live_update',<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'data': latest_data,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'prediction': prediction.tolist(),<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'timestamp': time.time()<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;await websocket.send(json.dumps(update))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;await asyncio.sleep(1)  # Actualizar cada segundo<br>
+            &nbsp;&nbsp;except websockets.exceptions.ConnectionClosed:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;print("Cliente desconectado")<br><br>
+            
+            # Iniciar servidor<br>
+            start_server = websockets.serve(handle_websocket, "localhost", 8765)<br><br>
+            
+            asyncio.get_event_loop().run_until_complete(start_server)<br>
+            asyncio.get_event_loop().run_forever()
         </div>
         
-        <h3>Internet de las Cosas (IoT) Masivo</h3>
-        <p>La proliferación de dispositivos IoT requiere:</p>
+        <h3>Cliente WebSocket en JavaScript</h3>
+        <div class="code-block">
+            class MLWebSocketClient {<br>
+            &nbsp;&nbsp;constructor(url) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;this.url = url;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;this.socket = null;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;this.callbacks = new Map();<br>
+            &nbsp;&nbsp;}<br><br>
+            
+            &nbsp;&nbsp;connect() {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;this.socket = new WebSocket(this.url);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;this.socket.onopen = () => {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('Conectado al servidor WebSocket');<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;};<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;this.socket.onmessage = (event) => {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const data = JSON.parse(event.data);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.handleMessage(data);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;};<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;this.socket.onclose = () => {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('Conexión WebSocket cerrada');<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;};<br>
+            &nbsp;&nbsp;}<br><br>
+            
+            &nbsp;&nbsp;requestPrediction(features, callback) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;const requestId = Math.random().toString(36);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;this.callbacks.set(requestId, callback);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;const message = {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;type: 'prediction',<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;features: features,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;request_id: requestId<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;};<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;this.socket.send(JSON.stringify(message));<br>
+            &nbsp;&nbsp;}<br><br>
+            
+            &nbsp;&nbsp;handleMessage(data) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;if (data.type === 'prediction_result' && data.request_id) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const callback = this.callbacks.get(data.request_id);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (callback) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;callback(data.prediction);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.callbacks.delete(data.request_id);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;else if (data.type === 'live_update') {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Actualizar UI en tiempo real<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.updateLiveData(data);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            &nbsp;&nbsp;}<br>
+            }<br><br>
+            
+            // Uso<br>
+            const client = new MLWebSocketClient('ws://localhost:8765');<br>
+            client.connect();<br>
+            client.requestPrediction([1.2, 3.4, 5.6], (prediction) => {<br>
+            &nbsp;&nbsp;console.log('Predicción recibida:', prediction);<br>
+            });
+        </div>
+    </section>
+    
+    <section id="implementacion-mqtt">
+        <h2>6. Implementación con MQTT</h2>
+        
+        <h3>Publicador MQTT en Python (paho-mqtt)</h3>
+        <div class="code-block">
+            import paho.mqtt.client as mqtt<br>
+            import json<br>
+            import time<br>
+            from sensors import SensorReader<br>
+            from model_inference import MLModel<br><br>
+            
+            # Configuración<br>
+            BROKER = "localhost"<br>
+            PORT = 1883<br>
+            TOPIC_PREDICTIONS = "ml/predictions"<br>
+            TOPIC_SENSOR_DATA = "sensors/data"<br><br>
+            
+            # Inicializar componentes<br>
+            sensor_reader = SensorReader()<br>
+            model = MLModel.load('model.h5')<br><br>
+            
+            # Callbacks MQTT<br>
+            def on_connect(client, userdata, flags, rc):<br>
+            &nbsp;&nbsp;if rc == 0:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;print("Conectado al broker MQTT")<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;# Suscribirse a tópicos si es necesario<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;client.subscribe("ml/commands")<br>
+            &nbsp;&nbsp;else:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;print(f"Error de conexión: {rc}")<br><br>
+            
+            def on_message(client, userdata, msg):<br>
+            &nbsp;&nbsp;topic = msg.topic<br>
+            &nbsp;&nbsp;payload = json.loads(msg.payload.decode())<br>
+            &nbsp;&nbsp;<br>
+            &nbsp;&nbsp;if topic == "ml/commands":<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;handle_command(payload)<br><br>
+            
+            def handle_command(command):<br>
+            &nbsp;&nbsp;if command['action'] == 'reload_model':<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;model.reload()<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;print("Modelo recargado")<br><br>
+            
+            # Configurar cliente MQTT<br>
+            client = mqtt.Client()<br>
+            client.on_connect = on_connect<br>
+            client.on_message = on_message<br>
+            client.will_set("ml/status", "offline", qos=1, retain=True)<br><br>
+            
+            # Conectar y publicar estado<br>
+            client.connect(BROKER, PORT, 60)<br>
+            client.publish("ml/status", "online", qos=1, retain=True)<br><br>
+            
+            # Bucle principal - publicar datos de sensores y predicciones<br>
+            try:<br>
+            &nbsp;&nbsp;while True:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;# Leer datos del sensor<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;sensor_data = sensor_reader.read()<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;# Publicar datos crudos<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;client.publish(<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TOPIC_SENSOR_DATA, <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;json.dumps(sensor_data), <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;qos=0<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;# Realizar predicción y publicar<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;prediction = model.predict(sensor_data['values'])<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;prediction_msg = {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'sensor_id': sensor_data['id'],<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'timestamp': sensor_data['timestamp'],<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'prediction': prediction.tolist(),<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'confidence': float(max(prediction))<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;client.publish(<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TOPIC_PREDICTIONS, <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;json.dumps(prediction_msg), <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;qos=1  # Garantizar entrega de predicciones<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;)<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;time.sleep(1)  # Publicar cada segundo<br>
+            &nbsp;&nbsp;<br>
+            except KeyboardInterrupt:<br>
+            &nbsp;&nbsp;client.publish("ml/status", "offline", qos=1, retain=True)<br>
+            &nbsp;&nbsp;client.disconnect()
+        </div>
+        
+        <h3>Suscriptor MQTT en Node.js</h3>
+        <div class="code-block">
+            const mqtt = require('mqtt');<br>
+            <br>
+            class MLMQTTSubscriber {<br>
+            &nbsp;&nbsp;constructor(brokerUrl) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;this.brokerUrl = brokerUrl;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;this.client = null;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;this.handlers = new Map();<br>
+            &nbsp;&nbsp;}<br><br>
+            
+            &nbsp;&nbsp;connect() {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;this.client = mqtt.connect(this.brokerUrl);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;this.client.on('connect', () => {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log('Conectado al broker MQTT');<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.subscribeToTopics();<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;});<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;this.client.on('message', (topic, message) => {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.handleMessage(topic, message.toString());<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;});<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;this.client.on('error', (error) => {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.error('Error MQTT:', error);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;});<br>
+            &nbsp;&nbsp;}<br><br>
+            
+            &nbsp;&nbsp;subscribeToTopics() {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;// Suscribirse a múltiples tópicos<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;this.client.subscribe([<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'ml/predictions',<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'sensors/data',<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'ml/status'<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;], { qos: 1 });<br>
+            &nbsp;&nbsp;}<br><br>
+            
+            &nbsp;&nbsp;handleMessage(topic, message) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;try {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const data = JSON.parse(message);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;switch (topic) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 'ml/predictions':<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.handlePrediction(data);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 'sensors/data':<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.handleSensorData(data);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;case 'ml/status':<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.handleStatusUpdate(data);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;} catch (error) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.error('Error procesando mensaje:', error);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+            &nbsp;&nbsp;}<br><br>
+            
+            &nbsp;&nbsp;handlePrediction(prediction) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;// Actualizar dashboard en tiempo real<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;console.log('Nueva predicción:', prediction);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;// Enviar a WebSocket para clients web<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;this.broadcastToWebClients('prediction', prediction);<br>
+            &nbsp;&nbsp;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;// Almacenar en base de datos<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;this.storePrediction(prediction);<br>
+            &nbsp;&nbsp;}<br><br>
+            
+            &nbsp;&nbsp;onPrediction(handler) {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;this.handlers.set('prediction', handler);<br>
+            &nbsp;&nbsp;}<br>
+            }<br><br>
+            
+            // Uso<br>
+            const subscriber = new MLMQTTSubscriber('mqtt://localhost:1883');<br>
+            subscriber.connect();<br>
+            subscriber.onPrediction((prediction) => {<br>
+            &nbsp;&nbsp;// Procesar predicción<br>
+            &nbsp;&nbsp;updateDashboard(prediction);<br>
+            });
+        </div>
+    </section>
+    
+    <section id="casos-uso-ia">
+        <h2>7. Casos de Uso en Inteligencia Artificial</h2>
+        
+        <h3>1. Sistemas de Recomendación en Tiempo Real</h3>
+        <div class="architecture-diagram">
+            <div class="architecture-box">Interacciones de Usuario</div>
+            <div class="arrow">→</div>
+            <div class="architecture-box">WebSocket/MQTT</div>
+            <div class="arrow">→</div>
+            <div class="architecture-box">Modelo de ML</div>
+            <div class="arrow">→</div>
+            <div class="architecture-box">Recomendaciones Instantáneas</div>
+        </div>
+        
+        <div class="code-block">
+            // Cuando un usuario interactúa con un producto<br>
+            function trackUserInteraction(userId, productId, action) {<br>
+            &nbsp;&nbsp;const interaction = {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;user_id: userId,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;product_id: productId,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;action: action,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;timestamp: Date.now()<br>
+            &nbsp;&nbsp;};<br>
+            &nbsp;&nbsp;<br>
+            &nbsp;&nbsp;// Enviar inmediatamente via WebSocket<br>
+            &nbsp;&nbsp;websocket.send(JSON.stringify({<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;type: 'user_interaction',<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;data: interaction<br>
+            &nbsp;&nbsp;}));<br>
+            &nbsp;&nbsp;<br>
+            &nbsp;&nbsp;// El servidor procesa y devuelve nuevas recomendaciones<br>
+            }
+        </div>
+        
+        <h3>2. Monitoreo de Modelos en Producción</h3>
         <ul>
-            <li>Protocolos más eficientes energéticamente</li>
-            <li>Mayor escalabilidad en las redes</li>
-            <li>Soluciones de seguridad adaptadas a dispositivos con recursos limitados</li>
-            <li>Tecnologías como NB-IoT y LTE-M para conectividad de bajo consumo</li>
+            <li><strong>Métricas en tiempo real:</strong> Accuracy, precision, recall</li>
+            <li><strong>Detección de drift:</strong> Cambios en la distribución de datos</li>
+            <li><strong>Performance:</strong> Latencia, throughput de predicciones</li>
+            <li><strong>Alertas automáticas:</strong> Cuando las métricas caen bajo umbrales</li>
         </ul>
+        
+        <h3>3. Inferencia en Edge Computing</h3>
+        <div class="architecture-diagram">
+            <div class="architecture-box">Dispositivos IoT<br/><small>(Cámaras, sensores)</small></div>
+            <div class="arrow">→</div>
+            <div class="architecture-box">MQTT</div>
+            <div class="arrow">→</div>
+            <div class="architecture-box">Edge ML Model</div>
+            <div class="arrow">→</div>
+            <div class="architecture-box">Acciones Inmediatas</div>
+        </div>
+        
+        <h3>4. Dashboards de Analytics en Vivo</h3>
+        <p>Visualización de predicciones, métricas de modelos y datos de sensores en tiempo real usando WebSocket para actualizaciones instantáneas en el frontend.</p>
+        
+        <div class="note">
+            <strong>Patrón híbrido:</strong> Es común usar MQTT para la comunicación entre dispositivos/servicios y WebSocket para conectar el backend con clients web, aprovechando lo mejor de ambos protocolos.
+        </div>
     </section>
     
     <section id="conclusion">
-        <h2>6. Conclusión</h2>
-        <p>Los protocolos modernos y medios de transmisión han experimentado una evolución notable, permitiendo velocidades de transferencia impensables hace apenas una década, junto con mejoras sustanciales en seguridad, eficiencia y confiabilidad.</p>
-        <p>La comparación con tecnologías anteriores demuestra el progreso exponencial en capacidades de red, mientras que las tendencias futuras apuntan hacia una integración más profunda con inteligencia artificial, computación cuántica y la conexión ubicua de dispositivos a través de IoT.</p>
-        <p>Esta evolución continua es fundamental para soportar las aplicaciones emergentes que definirán la próxima era digital, desde realidad extendida hasta vehículos autónomos y ciudades inteligentes.</p>
+        <h2>8. Conclusión</h2>
+        
+        <h3>Resumen de Ventajas</h3>
+        
+        <div class="note">
+            <span class="protocol-badge websocket-badge">WEBSOCKET</span>
+            <strong>Fortalezas principales:</strong>
+            <ul>
+                <li>Comunicación bidireccional en tiempo real</li>
+                <li>Soporte nativo en navegadores</li>
+                <li>Ideal para aplicaciones interactivas</li>
+                <li>Conexión directa cliente-servidor</li>
+            </ul>
+        </div>
+        
+        <div class="note">
+            <span class="protocol-badge mqtt-badge">MQTT</span>
+            <strong>Fortalezas principales:</strong>
+            <ul>
+                <li>Extremadamente ligero y eficiente</li>
+                <li>Excelente para dispositivos con recursos limitados</li>
+                <li>Arquitectura publish/subscribe escalable</li>
+                <li>Múltiples niveles de QoS</li>
+                <li>Ideal para IoT y sistemas distribuidos</li>
+            </ul>
+        </div>
+        
+        <h3>Recomendaciones para Proyectos de IA</h3>
+        <ul>
+            <li><strong>Aplicaciones web interactivas:</strong> WebSocket para comunicación directa con el navegador</li>
+            <li><strong>Sistemas IoT o edge computing:</strong> MQTT para eficiencia y escalabilidad</li>
+            <li><strong>Arquitecturas híbridas:</strong> MQTT entre servicios + WebSocket para clients web</li>
+            <li><strong>Alta confiabilidad requerida:</strong> MQTT con QoS 1 o 2</li>
+            <li><strong>Prototipado rápido:</strong> WebSocket por su simplicidad</li>
+        </ul>
+        
+        <h3>Consideraciones de Implementación</h3>
+        <ul>
+            <li><strong>Seguridad:</strong> Implementar TLS/SSL y autenticación</li>
+            <li><strong>Escalabilidad:</strong> Usar brokers MQTT clusterizados o balanceadores de carga para WebSocket</li>
+            <li><strong>Manejo de desconexiones:</strong> Implementar reconexión automática y mensajes de última voluntad</li>
+            <li><strong>Monitoreo:</strong> Seguir métricas de conexiones, mensajes y latencia</li>
+            <li><strong>Pruebas:</strong> Probar bajo condiciones de red deficientes y alta carga</li>
+        </ul>
+        
+        <p>La elección entre WebSocket y MQTT depende fundamentalmente de los requisitos específicos del proyecto, la arquitectura existente y los tipos de clients que se conectarán al sistema. Ambos protocolos son complementarios y pueden coexistir en sistemas complejos de inteligencia artificial.</p>
     </section>
     
     <div class="volver-indice">
@@ -361,7 +860,7 @@
     </div>
     
     <footer>
-        <p>Informe sobre Protocolos Modernos y Medios de Transmisión - Jonathan Blanco</p>
+        <p>Informe sobre WebSocket y MQTT para Comunicación en Tiempo Real - Jonathan Blanco</p>
     </footer>
 </body>
 </html>
