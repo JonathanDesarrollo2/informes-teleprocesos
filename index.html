@@ -1,683 +1,165 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redes y Servicios de Interconexión Aplicados al Teleproceso y Acceso Remoto</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-            color: #333;
-            max-width: 900px;
-            margin: 0 auto;
-            background-color: #f9f9f9;
-        }
-        
-        .header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 30px;
-            padding-bottom: 10px;
-            border-bottom: 1px solid #ddd;
-        }
-        
-        .student-info {
-            text-align: left;
-        }
-        
-        .materia {
-            font-size: 16px;
-            color: #555;
-            margin-bottom: 5px;
-        }
-        
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-            margin-bottom: 30px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #3498db;
-        }
-        
-        .indice {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-        }
-        
-        .indice h2 {
-            color: #2c3e50;
-            margin-top: 0;
-        }
-        
-        .indice ul {
-            padding-left: 20px;
-        }
-        
-        .indice li {
-            margin-bottom: 8px;
-        }
-        
-        .indice a {
-            text-decoration: none;
-            color: #3498db;
-        }
-        
-        .indice a:hover {
-            text-decoration: underline;
-        }
-        
-        section {
-            background-color: #fff;
-            padding: 25px;
-            margin-bottom: 25px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        
-        h2 {
-            color: #2c3e50;
-            border-left: 4px solid #3498db;
-            padding-left: 10px;
-        }
-        
-        .volver-indice {
-            text-align: center;
-            margin-top: 30px;
-        }
-        
-        .volver-indice a {
-            background-color: #3498db;
-            color: white;
-            padding: 8px 15px;
-            text-decoration: none;
-            border-radius: 4px;
-            font-size: 14px;
-        }
-        
-        .volver-indice a:hover {
-            background-color: #2980b9;
-        }
-        
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #ddd;
-            color: #7f8c8d;
-            font-size: 14px;
-        }
-        
-        .code-block {
-            background-color: #f4f4f4;
-            border-left: 4px solid #3498db;
-            padding: 15px;
-            margin: 15px 0;
-            font-family: 'Courier New', monospace;
-            border-radius: 0 5px 5px 0;
-            overflow-x: auto;
-        }
-        
-        .note {
-            background-color: #e7f3fe;
-            border-left: 4px solid #2196F3;
-            padding: 10px 15px;
-            margin: 15px 0;
-        }
-        
-        .diagrama {
-            text-align: center;
-            margin: 20px 0;
-            padding: 15px;
-            background-color: #f8f9fa;
-            border-radius: 5px;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
-        }
-        
-        th, td {
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: left;
-        }
-        
-        th {
-            background-color: #f2f2f2;
-        }
-    </style>
-</head>
-<body>
-    <div class="header">
-        <div class="student-info">
-            <p><strong>Jonathan Blanco</strong></p>
-            <p>Cédula: 30483682</p>
-        </div>
+<div class="materia">Teleprocesos</div>
+<h1>Control Remoto y Seguridad de Datos</h1>
+
+<div class="indice">
+    <h2>Índice</h2>
+    <ul>
+        <li><a href="#introduccion">1. Introducción a los Teleprocesos</a></li>
+        <li><a href="#control-remoto">2. Tecnologías de Control Remoto</a></li>
+        <li><a href="#seguridad-datos">3. Seguridad de Datos en Teleprocesos</a></li>
+        <li><a href="#protocolos-seguridad">4. Protocolos de Seguridad</a></li>
+        <li><a href="#mejores-practicas">5. Mejores Prácticas</a></li>
+        <li><a href="#conclusion">6. Conclusión</a></li>
+    </ul>
+</div>
+
+<section id="introduccion">
+    <h2>1. Introducción a los Teleprocesos</h2>
+    <p>Los teleprocesos se refieren al tratamiento de información a distancia, donde los datos son transmitidos a través de redes de comunicación para ser procesados en un sistema remoto. Esta disciplina combina tecnologías de telecomunicaciones y procesamiento de datos para permitir la interacción entre usuarios y sistemas geográficamente dispersos.</p>
+    <p>El control remoto y la seguridad de datos son dos pilares fundamentales en este campo, ya que permiten operar sistemas de manera segura y confiable sobre redes potencialmente inseguras como Internet.</p>
+</section>
+
+<section id="control-remoto">
+    <h2>2. Tecnologías de Control Remoto</h2>
+    <p>El control remoto permite a usuarios administrar sistemas, dispositivos o redes desde una ubicación diferente a la física del recurso. Se implementa a través de diversas tecnologías y protocolos.</p>
+    
+    <h3>Protocolos de Acceso Remoto</h3>
+    <p>Estos protocolos establecen las reglas para la comunicación entre el cliente y el servidor remoto:</p>
+    <ul>
+        <li><strong>SSH (Secure Shell)</strong>: Protocolo cifrado para acceso seguro a sistemas Unix/Linux.</li>
+        <li><strong>RDP (Remote Desktop Protocol)</strong>: Protocolo propietario de Microsoft para control de escritorio remoto.</li>
+        <li><strong>VNC (Virtual Network Computing)</strong>: Sistema de visualización de escritorio remoto de plataforma cruzada.</li>
+        <li><strong>Telnet</strong>: Protocolo más antiguo y no seguro, actualmente desaconsejado.</li>
+    </ul>
+    
+    <h3>Arquitecturas de Control Remoto</h3>
+    <p>Existen dos modelos principales de arquitectura para sistemas de control remoto:</p>
+    <div class="code-block">
+        # Modelo Cliente-Servidor (ejemplo conceptual)
+        Cliente (Solicitud) → Red → Servidor (Procesamiento)
+                      ↑                                   ↓
+        Cliente (Respuesta) ← Red ← Servidor (Resultados)
+
+        # Modelo Peer-to-Peer (P2P)
+        Nodo A ↔ Red ↔ Nodo B
+        (Ambos pueden actuar como cliente y servidor)
     </div>
     
-    <div class="materia">Redes y Servicios de Interconexión</div>
-    <h1>Redes y Servicios de Interconexión Aplicados al Teleproceso y Acceso Remoto</h1>
+    <div class="note">
+        <strong>Nota:</strong> La elección del protocolo y arquitectura depende de factores como la seguridad requerida, el tipo de sistema operativo, el ancho de banda disponible y la latencia tolerable.
+    </div>
+</section>
+
+<section id="seguridad-datos">
+    <h2>3. Seguridad de Datos en Teleprocesos</h2>
+    <p>La seguridad de los datos transmitidos y procesados remotamente es crítica. Los principales aspectos a considerar son:</p>
     
-    <div class="indice">
-        <h2>Índice</h2>
-        <ul>
-            <li><a href="#introduccion">1. Introducción</a></li>
-            <li><a href="#fundamentos">2. Fundamentos del Teleproceso y Acceso Remoto</a></li>
-            <li><a href="#arquitecturas">3. Arquitecturas de Red para Teleproceso</a></li>
-            <li><a href="#protocolos">4. Protocolos y Tecnologías de Interconexión</a></li>
-            <li><a href="#servicios">5. Servicios de Interconexión para Acceso Remoto</a></li>
-            <li><a href="#seguridad">6. Seguridad en Sistemas de Teleproceso</a></li>
-            <li><a href="#implementacion">7. Implementación de Soluciones</a></li>
-            <li><a href="#casos">8. Casos de Estudio y Aplicaciones</a></li>
-            <li><a href="#conclusion">9. Conclusión</a></li>
-        </ul>
+    <h3>Confidencialidad</h3>
+    <p>Garantizar que la información solo sea accesible a personas autorizadas. Se logra mediante:</p>
+    <ul>
+        <li><strong>Cifrado de datos</strong>: Transformación de datos legibles (texto plano) en forma ilegible (texto cifrado).</li>
+        <li><strong>Control de acceso</strong>: Mecanismos de autenticación y autorización robustos.</li>
+    </ul>
+    
+    <h3>Integridad</h3>
+    <p>Asegurar que los datos no sean alterados durante la transmisión o almacenamiento. Técnicas comunes:</p>
+    <ul>
+        <li><strong>Funciones Hash</strong>: Como SHA-256 para verificar la integridad de los datos.</li>
+        <li><strong>Firmas digitales</strong>: Para autenticar el origen y verificar la integridad.</li>
+    </ul>
+    
+    <h3>Disponibilidad</h3>
+    <p>Garantizar que los sistemas y datos estén accesibles cuando se necesiten. Estrategias:</p>
+    <ul>
+        <li><strong>Redundancia</strong>: Sistemas duplicados para evitar puntos únicos de fallo.</li>
+        <li><strong>Balanceo de carga</strong>: Distribución del tráfico entre múltiples servidores.</li>
+        <li><strong>Planes de recuperación ante desastres</strong>: Para restaurar servicios rápidamente.</li>
+    </ul>
+</section>
+
+<section id="protocolos-seguridad">
+    <h2>4. Protocolos de Seguridad</h2>
+    <p>Varios protocolos estándar implementan medidas de seguridad para teleprocesos:</p>
+    
+    <h3>Para Comunicaciones Web</h3>
+    <p>Protegen la transmisión de datos en aplicaciones web y APIs:</p>
+    <div class="code-block">
+        # HTTPS (HTTP sobre TLS/SSL)
+        - Cifra la comunicación entre navegador y servidor
+        - Autentica el servidor (y opcionalmente el cliente)
+        - Protege contra espionaje y manipulación
+
+        # OAuth 2.0 / OpenID Connect
+        - Protocolos de autorización y autenticación para APIs
+        - Permite acceso delegado seguro a recursos
     </div>
     
-    <section id="introduccion">
-        <h2>1. Introducción</h2>
-        <p>El teleproceso y acceso remoto representan pilares fundamentales en la evolución de los sistemas informáticos modernos, permitiendo la interacción con recursos computacionales desde ubicaciones geográficamente distribuidas. Estos conceptos han revolucionado la forma en que las organizaciones operan, facilitando la colaboración, el acceso a información en tiempo real y la gestión centralizada de recursos.</p>
-        
-        <p>Las redes de interconexión constituyen la infraestructura subyacente que hace posible estas capacidades, proporcionando los medios para transmitir datos entre sistemas distribuidos de manera confiable, segura y eficiente. La evolución de estas tecnologías ha transitado desde conexiones punto a punto simples hasta arquitecturas complejas basadas en Internet que soportan aplicaciones críticas en diversos sectores.</p>
-        
-        <div class="note">
-            <strong>Definición clave:</strong> El teleproceso se refiere al procesamiento de datos realizado a distancia, donde los terminales se conectan a un computador central para realizar operaciones, mientras que el acceso remoto permite a usuarios conectarse a redes corporativas desde ubicaciones externas.
-        </div>
-        
-        <p>Este informe explorará en detalle las redes y servicios de interconexión aplicados específicamente al teleproceso y acceso remoto, analizando sus fundamentos, tecnologías, implementación y casos de aplicación en el entorno empresarial moderno.</p>
-    </section>
+    <h3>Para Redes Privadas Virtuales (VPN)</h3>
+    <p>Crean túneles seguros a través de redes públicas:</p>
+    <ul>
+        <li><strong>IPsec</strong>: Conjunto de protocolos para comunicaciones seguras a nivel de red.</li>
+        <li><strong>OpenVPN</strong>: Solución VPN de código abierto basada en SSL/TLS.</li>
+        <li><strong>WireGuard</strong>: Protocolo VPN moderno, más simple y rápido.</li>
+    </ul>
     
-    <section id="fundamentos">
-        <h2>2. Fundamentos del Teleproceso y Acceso Remoto</h2>
+    <h3>Para Acceso Remoto Seguro</h3>
+    <p>Mejoras de seguridad sobre protocolos básicos:</p>
+    <div class="code-block">
+        # SSH con autenticación por clave pública
+        1. Generar par de claves (pública/privada):
+           ssh-keygen -t rsa -b 4096
         
-        <h3>Conceptos Básicos</h3>
-        <p>El teleproceso surgió como una necesidad de conectar terminales remotas a sistemas centralizados, evolucionando desde sistemas batch hacia procesamiento interactivo en tiempo real. Sus componentes fundamentales incluyen:</p>
+        2. Copiar clave pública al servidor:
+           ssh-copy-id usuario@servidor
         
-        <ul>
-            <li><strong>Terminales remotos:</strong> Dispositivos de entrada/salida ubicados a distancia del computador central</li>
-            <li><strong>Unidad de control de comunicaciones:</strong> Hardware especializado que gestiona las conexiones</li>
-            <li><strong>Líneas de transmisión:</strong> Medios físicos o inalámbricos para la comunicación</li>
-            <li><strong>Software de teleproceso:</strong> Programas que gestionan las comunicaciones y el procesamiento distribuido</li>
-        </ul>
-        
-        <h3>Evolución Histórica</h3>
-        <p>El desarrollo del teleproceso ha seguido una trayectoria marcada por hitos tecnológicos:</p>
-        
-        <table>
-            <tr>
-                <th>Periodo</th>
-                <th>Tecnología</th>
-                <th>Características</th>
-            </tr>
-            <tr>
-                <td>1960s</td>
-                <td>Sistemas centralizados</td>
-                <td>Mainframes con terminales tontos, protocolos propietarios</td>
-            </tr>
-            <tr>
-                <td>1970-1980s</td>
-                <td>Arquitecturas cliente-servidor</td>
-                <td>Distribución parcial de procesamiento, estándares emergentes</td>
-            </tr>
-            <tr>
-                <td>1990s</td>
-                <td>Internet y TCP/IP</td>
-                <td>Estandarización, conectividad global, servicios web</td>
-            </tr>
-            <tr>
-                <td>2000s-presente</td>
-                <td>Computación en la nube y movilidad</td>
-                <td>Acceso ubicuo, virtualización, servicios bajo demanda</td>
-            </tr>
-        </table>
-        
-        <h3>Ventajas y Desafíos</h3>
-        <p>La implementación de sistemas de teleproceso y acceso remoto ofrece importantes beneficios pero también presenta desafíos técnicos y de seguridad:</p>
-        
-        <div class="diagrama">
-            <strong>Ventajas principales:</strong><br>
-            • Centralización de recursos y administración<br>
-            • Reducción de costos de infraestructura local<br>
-            • Acceso a información en tiempo real<br>
-            • Flexibilidad y movilidad para los usuarios<br>
-            • Escalabilidad y capacidad de crecimiento
-        </div>
-        
-        <div class="note">
-            <strong>Consideración importante:</strong> El rendimiento de los sistemas de teleproceso está directamente relacionado con la calidad y capacidad de la red de interconexión, requiriendo diseños cuidadosos que equilibren latencia, ancho de banda y confiabilidad.
-        </div>
-    </section>
-    
-    <section id="arquitecturas">
-        <h2>3. Arquitecturas de Red para Teleproceso</h2>
-        
-        <h3>Topologías de Red Aplicadas al Teleproceso</h3>
-        <p>Las topologías de red definen la estructura física y lógica de interconexión entre los componentes de un sistema de teleproceso. Las principales incluyen:</p>
-        
-        <ul>
-            <li><strong>Estrella:</strong> Todos los terminales se conectan a un concentrador central, facilitando la gestión pero creando un punto único de fallo</li>
-            <li><strong>Malla:</strong> Conexiones redundantes entre nodos, ofreciendo alta disponibilidad a mayor costo</li>
-            <li><strong>Anillo:</strong> Datos que circulan en una dirección, apropiada para entornos con tráfico predecible</li>
-            <li><strong>Bus:</strong> Medio compartido donde todos los dispositivos reciben las transmisiones, simple pero con limitaciones de escalabilidad</li>
-            <li><strong>Híbrida:</strong> Combinación de topologías para optimizar costos, rendimiento y confiabilidad</li>
-        </ul>
-        
-        <h3>Arquitecturas Cliente-Servidor para Acceso Remoto</h3>
-        <p>El modelo cliente-servidor constituye la base de la mayoría de sistemas modernos de acceso remoto, con variantes específicas:</p>
-        
-        <div class="code-block">
-            <strong>Arquitectura de dos capas:</strong><br>
-            Cliente → Servidor de aplicaciones → Base de datos<br>
-            <em>Adecuada para cargas de trabajo moderadas y entornos homogéneos</em><br><br>
-            
-            <strong>Arquitectura de tres capas:</strong><br>
-            Cliente → Servidor web → Servidor de aplicaciones → Base de datos<br>
-            <em>Mayor escalabilidad y separación de responsabilidades</em><br><br>
-            
-            <strong>Arquitectura N-capas:</strong><br>
-            Múltiples niveles especializados (presentación, lógica, datos, integración)<br>
-            <em>Máxima flexibilidad para sistemas empresariales complejos</em>
-        </div>
-        
-        <h3>Arquitecturas Orientadas a Servicios (SOA)</h3>
-        <p>Las arquitecturas SOA representan un paradigma moderno donde los componentes se implementan como servicios independientes que se comunican a través de interfaces estandarizadas:</p>
-        
-        <ul>
-            <li><strong>Servicios web:</strong> Implementados mediante SOAP, REST u otros protocolos</li>
-            <li><strong>Independencia de plataforma:</strong> Los servicios pueden implementarse en diferentes tecnologías</li>
-            <li><strong>Composición flexible:</strong> Los procesos de negocio se construyen orquestando múltiples servicios</li>
-            <li><strong>Descubrimiento dinámico:</strong> Los servicios se registran y localizan mediante directorios</li>
-        </ul>
-        
-        <div class="diagrama">
-            <strong>Ejemplo de arquitectura SOA para teleproceso:</strong><br>
-            [Terminales remotos] → [Gateway de seguridad] → [ESB - Enterprise Service Bus] → [Servicios de aplicación] → [Sistemas legacy y bases de datos]
-        </div>
-    </section>
-    
-    <section id="protocolos">
-        <h2>4. Protocolos y Tecnologías de Interconexión</h2>
-        
-        <h3>Protocolos de Comunicación para Teleproceso</h3>
-        <p>Los protocolos de comunicación establecen las reglas y formatos para el intercambio de datos en sistemas de teleproceso. Los más relevantes incluyen:</p>
-        
-        <table>
-            <tr>
-                <th>Protocolo</th>
-                <th>Capa OSI</th>
-                <th>Aplicación en Teleproceso</th>
-            </tr>
-            <tr>
-                <td>TCP/IP</td>
-                <td>Transporte/Red</td>
-                <td>Base de Internet y redes corporativas, conexiones confiables</td>
-            </tr>
-            <tr>
-                <td>HTTP/HTTPS</td>
-                <td>Aplicación</td>
-                <td>Acceso web a aplicaciones, APIs REST, transferencia segura</td>
-            </tr>
-            <tr>
-                <td>SSH</td>
-                <td>Aplicación</td>
-                <td>Acceso seguro a línea de comandos, tunneling de otros protocolos</td>
-            </tr>
-            <tr>
-                <td>RDP</td>
-                <td>Aplicación</td>
-                <td>Acceso remoto a escritorios Windows, sesiones gráficas</td>
-            </tr>
-            <tr>
-                <td>VPN (IPSec, SSL)</td>
-                <td>Red/Transporte</td>
-                <td>Túneles seguros a través de redes públicas, extensión de redes privadas</td>
-            </tr>
-            <tr>
-                <td>MQTT</td>
-                <td>Aplicación</td>
-                <td>Comunicación máquina a máquina, IoT, bajo consumo de recursos</td>
-            </tr>
-        </table>
-        
-        <h3>Tecnologías de Conectividad</h3>
-        <p>Las tecnologías de conectividad física e inalámbrica constituyen la base material de las redes de interconexión:</p>
-        
-        <div class="code-block">
-            <strong>Tecnologías alámbricas:</strong><br>
-            • Líneas dedicadas (T1/E1, T3/E3) - Alta confiabilidad, costo elevado<br>
-            • xDSL (ADSL, VDSL) - Utiliza infraestructura telefónica existente<br>
-            • Cable módem - Comparte infraestructura de TV por cable<br>
-            • Fibra óptica (FTTH, FTTB) - Máximo ancho de banda, baja latencia<br><br>
-            
-            <strong>Tecnologías inalámbricas:</strong><br>
-            • Wi-Fi (802.11a/b/g/n/ac/ax) - Cobertura local, fácil despliegue<br>
-            • Cellular (3G, 4G/LTE, 5G) - Cobertura extensa, movilidad<br>
-            • Satelital - Cobertura global, alta latencia<br>
-            • Radio enlace punto a punto - Conexiones dedicadas de alta capacidad
-        </div>
-        
-        <h3>Tecnologías Emergentes</h3>
-        <p>Las nuevas tecnologías están transformando las capacidades de interconexión para teleproceso:</p>
-        
-        <ul>
-            <li><strong>SD-WAN (Software-Defined WAN):</strong> Gestión centralizada de redes WAN mediante software, optimización dinámica de tráfico</li>
-            <li><strong>5G:</strong> Baja latencia, alta capacidad y densidad de conexión para aplicaciones críticas</li>
-            <li><strong>Edge Computing:</strong> Procesamiento cerca del origen de datos, reduciendo latencia para aplicaciones en tiempo real</li>
-            <li><strong>Network Slicing:</strong> Creación de redes virtuales dedicadas con características específicas sobre infraestructura compartida</li>
-        </ul>
-        
-        <div class="note">
-            <strong>Tendencia actual:</strong> La convergencia entre redes fijas y móviles permite experiencias de acceso remoto consistentes independientemente de la tecnología de conectividad utilizada por el usuario.
-        </div>
-    </section>
-    
-    <section id="servicios">
-        <h2>5. Servicios de Interconexión para Acceso Remoto</h2>
-        
-        <h3>Servicios de Red Esenciales</h3>
-        <p>Los servicios de red proporcionan funcionalidades fundamentales que habilitan el teleproceso y acceso remoto efectivo:</p>
-        
-        <ul>
-            <li><strong>Servicios de Directorio (LDAP, Active Directory):</strong> Centralización de autenticación y autorización, gestión de políticas</li>
-            <li><strong>Servicios de Nombres de Dominio (DNS):</strong> Resolución de nombres a direcciones IP, esencial para localización de recursos</li>
-            <li><strong>Servicios de Tiempo (NTP):</strong> Sincronización horaria entre sistemas distribuidos, crítica para aplicaciones transaccionales</li>
-            <li><strong>Servicios de Mensajería (SMTP, IMAP, XMPP):</strong> Comunicación asíncrona entre usuarios y sistemas</li>
-            <li><strong>Servicios de Archivos (FTP, SFTP, SMB):</strong> Compartición y transferencia de archivos entre sistemas remotos</li>
-        </ul>
-        
-        <h3>Servicios Especializados para Teleproceso</h3>
-        <p>Además de los servicios básicos, existen servicios especializados que optimizan el teleproceso:</p>
-        
-        <div class="code-block">
-            <strong>Terminal Services (Windows) / SSH (Unix/Linux):</strong><br>
-            Permiten acceso remoto a interfaces de línea de comandos para administración<br><br>
-            
-            <strong>Virtual Desktop Infrastructure (VDI):</strong><br>
-            Entrega de escritorios virtualizados desde centros de datos centralizados<br><br>
-            
-            <strong>Application Virtualization:</strong><br>
-            Ejecución de aplicaciones en servidores centralizados con entrega de interfaz al cliente<br><br>
-            
-            <strong>Remote Application Servers (Citrix, Windows RDS):</strong><br>
-            Publicación de aplicaciones específicas en lugar de escritorios completos
-        </div>
-        
-        <h3>Servicios en la Nube para Acceso Remoto</h3>
-        <p>La computación en la nube ha transformado radicalmente los modelos de acceso remoto:</p>
-        
-        <table>
-            <tr>
-                <th>Tipo de Servicio</th>
-                <th>Ejemplos</th>
-                <th>Aplicación en Teleproceso</th>
-            </tr>
-            <tr>
-                <td>IaaS (Infraestructura)</td>
-                <td>AWS EC2, Azure VMs, Google Compute Engine</td>
-                <td>Despliegue de servidores de aplicaciones y bases de datos</td>
-            </tr>
-            <tr>
-                <td>PaaS (Plataforma)</td>
-                <td>Heroku, Google App Engine, Azure App Service</td>
-                <td>Desarrollo y despliegue de aplicaciones sin gestión de infraestructura</td>
-            </tr>
-            <tr>
-                <td>SaaS (Software)</td>
-                <td>Office 365, Salesforce, Google Workspace</td>
-                <td>Acceso inmediato a aplicaciones empresariales desde cualquier ubicación</td>
-            </tr>
-            <tr>
-                <td>DaaS (Escritorio)</td>
-                <td>Amazon WorkSpaces, Windows Virtual Desktop</td>
-                <td>Escritorios completos gestionados en la nube</td>
-            </tr>
-        </table>
-        
-        <div class="note">
-            <strong>Ventaja de los servicios en la nube:</strong> Proporcionan escalabilidad elástica, permitiendo ajustar capacidad según demanda sin inversiones iniciales en infraestructura física.
-        </div>
-    </section>
-    
-    <section id="seguridad">
-        <h2>6. Seguridad en Sistemas de Teleproceso</h2>
-        
-        <h3>Amenazas y Vulnerabilidades</h3>
-        <p>Los sistemas de teleproceso y acceso remoto presentan superficies de ataque expandidas que requieren medidas de seguridad robustas:</p>
-        
-        <ul>
-            <li><strong>Interceptación de datos:</strong> Captura no autorizada de información en tránsito</li>
-            <li><strong>Suplantación de identidad:</strong> Acceso no autorizado mediante credenciales robadas o vulneradas</li>
-            <li><strong>Ataques de denegación de servicio:</strong> Interrupción de la disponibilidad del servicio</li>
-            <li><strong>Malware y ransomware:</strong> Software malicioso que compromete sistemas</li>
-            <li><strong>Vulnerabilidades de protocolo:</strong> Explotación de debilidades en implementaciones de protocolos</li>
-        </ul>
-        
-        <h3>Estrategias de Seguridad Multinivel</h3>
-        <p>La protección efectiva de sistemas de teleproceso requiere un enfoque estratificado:</p>
-        
-        <div class="code-block">
-            <strong>Nivel de Red:</strong><br>
-            • Firewalls de próxima generación (NGFW)<br>
-            • Sistemas de detección/prevención de intrusiones (IDS/IPS)<br>
-            • Segmentación de red (VLANs, microsegmentación)<br>
-            • Túneles VPN con cifrado fuerte (IPSec, WireGuard)<br><br>
-            
-            <strong>Nivel de Aplicación:</strong><br>
-            • Autenticación multifactor (MFA)<br>
-            • Control de acceso basado en roles (RBAC)<br>
-            • Web Application Firewalls (WAF)<br>
-            • Validación exhaustiva de entrada<br><br>
-            
-            <strong>Nivel de Datos:</strong><br>
-            • Cifrado en tránsito (TLS/SSL)<br>
-            • Cifrado en reposo (discos, bases de datos)<br>
-            • Enmascaramiento y ofuscación de datos<br>
-            • Gestión centralizada de claves
-        </div>
-        
-        <h3>Zero Trust Architecture</h3>
-        <p>El modelo Zero Trust representa un paradigma moderno de seguridad basado en el principio "nunca confíes, siempre verifica":</p>
-        
-        <ul>
-            <li><strong>Verificación explícita:</strong> Autenticar y autorizar cada acceso basándose en todos los puntos de datos disponibles</li>
-            <li><strong>Acceso con privilegio mínimo:</strong> Otorgar solo los permisos estrictamente necesarios</li>
-            <li><strong>Suposición de vulneración:</strong> Diseñar sistemas asumiendo que eventualmente serán comprometidos</li>
-            <li><strong>Microsegmentación:</strong> Dividir la red en zonas pequeñas para contener posibles brechas</li>
-            <li><strong>Autenticación multifactor obligatoria:</strong> Requerir múltiples pruebas de identidad</li>
-        </ul>
-        
-        <div class="diagrama">
-            <strong>Implementación Zero Trust para acceso remoto:</strong><br>
-            [Dispositivo del usuario] → [Verificación de dispositivo/identidad] → [Proxy de acceso seguro] → [Autorización contextual] → [Aplicación específica]
-        </div>
-        
-        <div class="note">
-            <strong>Recomendación de seguridad:</strong> Implementar siempre el principio de mínimo privilegio, auditabilidad completa y defensa en profundidad para sistemas críticos de teleproceso.
-        </div>
-    </section>
-    
-    <section id="implementacion">
-        <h2>7. Implementación de Soluciones</h2>
-        
-        <h3>Metodología de Implementación</h3>
-        <p>La implementación exitosa de sistemas de teleproceso requiere un enfoque estructurado que considere aspectos técnicos, organizativos y de negocio:</p>
-        
-        <ol>
-            <li><strong>Análisis de Requerimientos:</strong> Identificar necesidades funcionales y no funcionales, usuarios, cargas de trabajo</li>
-            <li><strong>Diseño de Arquitectura:</strong> Seleccionar tecnologías, protocolos, topologías y patrones de seguridad</li>
-            <li><strong>Planificación de Capacidad:</strong> Dimensionar recursos de red, computación y almacenamiento</li>
-            <li><strong>Prototipado y Pruebas:</strong> Validar el diseño con implementaciones limitadas antes del despliegue completo</li>
-            <li><strong>Implementación Gradual:</strong> Desplegar por fases, comenzando con usuarios piloto</li>
-            <li><strong>Monitoreo y Optimización:</strong> Establecer métricas de rendimiento y realizar ajustes continuos</li>
-        </ol>
-        
-        <h3>Configuración de Servicios de Acceso Remoto</h3>
-        <p>La configuración práctica de servicios de acceso remoto implica múltiples componentes:</p>
-        
-        <div class="code-block">
-            <strong>Ejemplo de configuración VPN con OpenVPN:</strong><br>
-            # Instalación del servidor<br>
-            apt install openvpn easy-rsa<br><br>
-            
-            # Configuración del servidor<br>
-            port 1194<br>
-            proto udp<br>
-            dev tun<br>
-            ca ca.crt<br>
-            cert server.crt<br>
-            key server.key<br>
-            dh dh.pem<br>
-            server 10.8.0.0 255.255.255.0<br>
-            push "route 192.168.1.0 255.255.255.0"<br>
-            keepalive 10 120<br>
-            cipher AES-256-CBC<br>
-            user nobody<br>
-            group nogroup<br>
-            persist-key<br>
-            persist-tun<br>
-            status openvpn-status.log<br>
-            verb 3
-        </div>
-        
-        <h3>Consideraciones de Rendimiento</h3>
-        <p>Optimizar el rendimiento de sistemas de teleproceso requiere atención a múltiples factores:</p>
-        
-        <table>
-            <tr>
-                <th>Factor</th>
-                <th>Impacto</th>
-                <th>Estrategias de Optimización</th>
-            </tr>
-            <tr>
-                <td>Latencia de red</td>
-                <td>Tiempo de respuesta percibido por el usuario</td>
-                <td>CDN, compresión, caching, protocolos eficientes</td>
-            </tr>
-            <tr>
-                <td>Ancho de banda</td>
-                <td>Volumen de datos transferibles</td>
-                <td>Compresión, optimización de protocolos, QoS</td>
-            </tr>
-            <tr>
-                <td>Confiabilidad</td>
-                <td>Disponibilidad del servicio</td>
-                <td>Redundancia, balanceo de carga, conmutación por error</td>
-            </tr>
-            <tr>
-                <td>Seguridad</td>
-                <td>Protección sin degradar rendimiento</td>
-                <td>Cifrado por hardware, SSL/TLS offloading</td>
-            </tr>
-        </table>
-        
-        <div class="note">
-            <strong>Práctica recomendada:</strong> Realizar pruebas de carga y estrés antes del despliegue en producción para identificar cuellos de botella y establecer líneas base de rendimiento.
-        </div>
-    </section>
-    
-    <section id="casos">
-        <h2>8. Casos de Estudio y Aplicaciones</h2>
-        
-        <h3>Teleproceso en el Sector Financiero</h3>
-        <p>Las instituciones financieras fueron pioneras en la adopción de sistemas de teleproceso para conectar sucursales con centros de procesamiento:</p>
-        
-        <ul>
-            <li><strong>Cajeros automáticos (ATMs):</strong> Transacciones en tiempo real contra bases de datos centralizadas</li>
-            <li><strong>Terminales punto de venta (TPV):</strong> Autorización inmediata de transacciones con tarjetas</li>
-            <li><strong>Banca en línea:</strong> Acceso remoto a servicios bancarios a través de múltiples canales</li>
-            <li><strong>Trading algorítmico:</strong> Ejecución ultrarrápida de operaciones en mercados financieros</li>
-        </ul>
-        
-        <div class="diagrama">
-            <strong>Arquitectura típica de banca en línea:</strong><br>
-            [Dispositivos usuario] → [Balanceador de carga] → [Web Frontends] → [Application Servers] → [Mainframes/Sistemas core banking]
-        </div>
-        
-        <h3>Acceso Remoto en Entornos Corporativos</h3>
-        <p>Las empresas modernas dependen críticamente del acceso remoto para permitir trabajo flexible y colaboración distribuida:</p>
-        
-        <div class="code-block">
-            <strong>Escenario: Empresa con teletrabajo extendido</strong><br>
-            • VPN corporativa con autenticación multifactor<br>
-            • Escritorios virtuales (VDI) para acceso seguro a aplicaciones<br>
-            • Colaboración mediante suites como Microsoft Teams o Slack<br>
-            • Almacenamiento en la nube con sincronización selectiva<br>
-            • Políticas de seguridad basadas en contexto (ubicación, dispositivo, hora)<br>
-            • Monitoreo continuo de seguridad y rendimiento
-        </div>
-        
-        <h3>Teleproceso en Sistemas SCADA e IoT</h3>
-        <p>Los sistemas de Supervisión, Control y Adquisición de Datos (SCADA) representan aplicaciones críticas de teleproceso:</p>
-        
-        <ul>
-            <li><strong>Control industrial:</strong> Supervisión remota de procesos de manufactura</li>
-            <li><strong>Infraestructuras críticas:</strong> Gestión de redes eléctricas, agua, gas</li>
-            <li><strong>Telemetría:</strong> Recolección de datos desde sensores distribuidos</li>
-            <li><strong>Control en tiempo real:</strong> Operación remota de equipos y maquinaria</li>
-        </ul>
-        
-        <div class="note">
-            <strong>Consideración especial:</strong> Los sistemas SCADA tienen requisitos únicos de tiempo real y confiabilidad que exigen diseños de red específicos, a menudo con componentes redundantes y protocolos especializados como Modbus, DNP3 o OPC UA.
-        </div>
-        
-        <h3>Telemedicina y Salud Remota</h3>
-        <p>El sector salud ha experimentado una acelerada adopción de tecnologías de acceso remoto:</p>
-        
-        <table>
-            <tr>
-                <th>Aplicación</th>
-                <th>Requisitos Técnicos</th>
-                <th>Beneficios</th>
-            </tr>
-            <tr>
-                <td>Consultas virtuales</td>
-                <td>Video de alta calidad, baja latencia, cifrado fuerte</td>
-                <td>Acceso a especialistas, reducción de desplazamientos</td>
-            </tr>
-            <tr>
-                <td>Monitoreo remoto de pacientes</td>
-                <td>Conectividad constante, transmisión segura de datos médicos</td>
-                <td>Mejora en seguimiento de crónicos, detección temprana</td>
-            </tr>
-            <tr>
-                <td>Tele radiología</td>
-                <td>Alto ancho de banda para imágenes médicas grandes</td>
-                <td>Interpretación rápida por especialistas distantes</td>
-            </tr>
-            <tr>
-                <td>Cirugía remota asistida</td>
-                <td>Latencia extremadamente baja, máxima confiabilidad</td>
-                <td>Expertos que guían procedimientos en ubicaciones remotas</td>
-            </tr>
-        </table>
-    </section>
-    
-    <section id="conclusion">
-        <h2>9. Conclusión</h2>
-        <p>Las redes y servicios de interconexión constituyen la columna vertebral del teleproceso y acceso remoto moderno, habilitando formas de trabajo y operación que serían imposibles con sistemas aislados. La evolución desde arquitecturas centralizadas simples hacia ecosistemas distribuidos complejos ha transformado radicalmente las capacidades organizativas, permitiendo colaboración global, operaciones en tiempo real y acceso ubicuo a recursos informáticos.</p>
-        
-        <p>Los avances tecnológicos continuos en áreas como 5G, edge computing, SD-WAN y arquitecturas Zero Trust están ampliando aún más las posibilidades, al tiempo que abordan desafíos críticos de seguridad, rendimiento y confiabilidad. La tendencia hacia la computación en la nube y servicios gestionados está democratizando el acceso a capacidades avanzadas de teleproceso, permitiendo que organizaciones de todos los tamaños implementen soluciones sofisticadas sin las barreras tradicionales de inversión y experiencia técnica.</p>
-        
-        <p>Mirando hacia el futuro, podemos anticipar una convergencia aún mayor entre redes fijas y móviles, inteligencia artificial integrada para optimización automática de redes, y el surgimiento de nuevos paradigmas como la computación cuántica que podrían revolucionar fundamentalmente las capacidades de procesamiento y comunicación distribuidas. Independientemente de la dirección específica que tomen estas evoluciones, las redes de interconexión seguirán siendo el elemento habilitador crítico que sustenta el teleproceso y acceso remoto en el panorama tecnológico del mañana.</p>
-        
-        <div class="note">
-            <strong>Reflexión final:</strong> En un mundo cada vez más interconectado, la capacidad de acceder y procesar información remotamente ha dejado de ser una ventaja competitiva para convertirse en una necesidad operativa fundamental para la mayoría de las organizaciones. La inversión continua en redes y servicios de interconexión robustos, seguros y de alto rendimiento representa por tanto una prioridad estratégica en la era digital.
-        </div>
-    </section>
-    
-    <div class="volver-indice">
-        <a href="#">Volver al Índice</a>
+        3. Deshabilitar autenticación por contraseña:
+           (En /etc/ssh/sshd_config: PasswordAuthentication no)
     </div>
+</section>
+
+<section id="mejores-practicas">
+    <h2>5. Mejores Prácticas</h2>
     
-    <footer>
-        <p>Informe sobre Redes y Servicios de Interconexión Aplicados al Teleproceso y Acceso Remoto - Jonathan Blanco</p>
-    </footer>
-</body>
-</html>
+    <h3>Para Implementaciones de Control Remoto</h3>
+    <ul>
+        <li><strong>Principio del menor privilegio</strong>: Otorgar solo los permisos necesarios para cada usuario/rol.</li>
+        <li><strong>Autenticación multifactor (MFA)</strong>: Requerir al menos dos formas de verificación.</li>
+        <li><strong>Registro y monitoreo (Logging)</strong>: Mantener registros detallados de todas las sesiones remotas.</li>
+        <li><strong>Actualizaciones periódicas</strong>: Mantener sistemas y software actualizados con los últimos parches de seguridad.</li>
+    </ul>
+    
+    <h3>Para la Seguridad de Datos</h3>
+    <ul>
+        <li><strong>Cifrado end-to-end</strong>: Datos cifrados desde el origen hasta el destino.</li>
+        <li><strong>Segmentación de red</strong>: Aislar sistemas críticos en segmentos de red separados.</li>
+        <li><strong>Copias de seguridad cifradas</strong>: Realizar backups periódicos y almacenarlos de forma segura.</li>
+        <li><strong>Evaluaciones de seguridad regulares</strong>: Penetration testing y auditorías de seguridad.</li>
+    </ul>
+    
+    <h3>Ejemplo de Configuración Segura para Servicio SSH</h3>
+    <div class="code-block">
+        # /etc/ssh/sshd_config - Configuración recomendada
+        Port 2222                          # Cambiar puerto predeterminado
+        PermitRootLogin no                 # No permitir acceso directo como root
+        PasswordAuthentication no          # Solo autenticación por clave
+        MaxAuthTries 3                     # Intentos máximos de autenticación
+        ClientAliveInterval 300           # Desconectar sesiones inactivas
+        ClientAliveCountMax 2
+        AllowUsers usuario1 usuario2      # Solo usuarios específicos
+    </div>
+</section>
+
+<section id="conclusion">
+    <h2>6. Conclusión</h2>
+    <p>El control remoto y la seguridad de datos son componentes esenciales e interrelacionados en el campo de los teleprocesos. Las tecnologías de acceso remoto permiten una administración flexible y eficiente de sistemas distribuidos, pero introducen vectores de ataque que deben mitigarse mediante robustas medidas de seguridad.</p>
+    <p>La implementación exitosa de soluciones de teleprocesos requiere un equilibrio entre funcionalidad, usabilidad y seguridad. Esto se logra mediante la selección apropiada de protocolos, la implementación de arquitecturas seguras por diseño, y la adhesión a mejores prácticas de la industria que evolucionan constantemente para contrarrestar nuevas amenazas.</p>
+    <p>El futuro de los teleprocesos continuará enfocándose en desarrollar controles remotos más intuitivos y seguros, con tendencias hacia la autenticación sin contraseña, el cifrado cuántico-resistente y la gestión de acceso basada en cero confianza (Zero Trust).</p>
+</section>
+
+<div class="volver-indice">
+    <a href="#">Volver al Índice</a>
+</div>
+
+<footer>
+    <p>Informe sobre Teleprocesos: Control Remoto y Seguridad de Datos - Jonathan Blanco</p>
+</footer>
