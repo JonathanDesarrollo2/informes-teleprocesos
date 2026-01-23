@@ -1,165 +1,308 @@
-<div class="materia">Teleprocesos</div>
-<h1>Control Remoto y Seguridad de Datos</h1>
-
-<div class="indice">
-    <h2>Índice</h2>
-    <ul>
-        <li><a href="#introduccion">1. Introducción a los Teleprocesos</a></li>
-        <li><a href="#control-remoto">2. Tecnologías de Control Remoto</a></li>
-        <li><a href="#seguridad-datos">3. Seguridad de Datos en Teleprocesos</a></li>
-        <li><a href="#protocolos-seguridad">4. Protocolos de Seguridad</a></li>
-        <li><a href="#mejores-practicas">5. Mejores Prácticas</a></li>
-        <li><a href="#conclusion">6. Conclusión</a></li>
-    </ul>
-</div>
-
-<section id="introduccion">
-    <h2>1. Introducción a los Teleprocesos</h2>
-    <p>Los teleprocesos se refieren al tratamiento de información a distancia, donde los datos son transmitidos a través de redes de comunicación para ser procesados en un sistema remoto. Esta disciplina combina tecnologías de telecomunicaciones y procesamiento de datos para permitir la interacción entre usuarios y sistemas geográficamente dispersos.</p>
-    <p>El control remoto y la seguridad de datos son dos pilares fundamentales en este campo, ya que permiten operar sistemas de manera segura y confiable sobre redes potencialmente inseguras como Internet.</p>
-</section>
-
-<section id="control-remoto">
-    <h2>2. Tecnologías de Control Remoto</h2>
-    <p>El control remoto permite a usuarios administrar sistemas, dispositivos o redes desde una ubicación diferente a la física del recurso. Se implementa a través de diversas tecnologías y protocolos.</p>
-    
-    <h3>Protocolos de Acceso Remoto</h3>
-    <p>Estos protocolos establecen las reglas para la comunicación entre el cliente y el servidor remoto:</p>
-    <ul>
-        <li><strong>SSH (Secure Shell)</strong>: Protocolo cifrado para acceso seguro a sistemas Unix/Linux.</li>
-        <li><strong>RDP (Remote Desktop Protocol)</strong>: Protocolo propietario de Microsoft para control de escritorio remoto.</li>
-        <li><strong>VNC (Virtual Network Computing)</strong>: Sistema de visualización de escritorio remoto de plataforma cruzada.</li>
-        <li><strong>Telnet</strong>: Protocolo más antiguo y no seguro, actualmente desaconsejado.</li>
-    </ul>
-    
-    <h3>Arquitecturas de Control Remoto</h3>
-    <p>Existen dos modelos principales de arquitectura para sistemas de control remoto:</p>
-    <div class="code-block">
-        # Modelo Cliente-Servidor (ejemplo conceptual)
-        Cliente (Solicitud) → Red → Servidor (Procesamiento)
-                      ↑                                   ↓
-        Cliente (Respuesta) ← Red ← Servidor (Resultados)
-
-        # Modelo Peer-to-Peer (P2P)
-        Nodo A ↔ Red ↔ Nodo B
-        (Ambos pueden actuar como cliente y servidor)
-    </div>
-    
-    <div class="note">
-        <strong>Nota:</strong> La elección del protocolo y arquitectura depende de factores como la seguridad requerida, el tipo de sistema operativo, el ancho de banda disponible y la latencia tolerable.
-    </div>
-</section>
-
-<section id="seguridad-datos">
-    <h2>3. Seguridad de Datos en Teleprocesos</h2>
-    <p>La seguridad de los datos transmitidos y procesados remotamente es crítica. Los principales aspectos a considerar son:</p>
-    
-    <h3>Confidencialidad</h3>
-    <p>Garantizar que la información solo sea accesible a personas autorizadas. Se logra mediante:</p>
-    <ul>
-        <li><strong>Cifrado de datos</strong>: Transformación de datos legibles (texto plano) en forma ilegible (texto cifrado).</li>
-        <li><strong>Control de acceso</strong>: Mecanismos de autenticación y autorización robustos.</li>
-    </ul>
-    
-    <h3>Integridad</h3>
-    <p>Asegurar que los datos no sean alterados durante la transmisión o almacenamiento. Técnicas comunes:</p>
-    <ul>
-        <li><strong>Funciones Hash</strong>: Como SHA-256 para verificar la integridad de los datos.</li>
-        <li><strong>Firmas digitales</strong>: Para autenticar el origen y verificar la integridad.</li>
-    </ul>
-    
-    <h3>Disponibilidad</h3>
-    <p>Garantizar que los sistemas y datos estén accesibles cuando se necesiten. Estrategias:</p>
-    <ul>
-        <li><strong>Redundancia</strong>: Sistemas duplicados para evitar puntos únicos de fallo.</li>
-        <li><strong>Balanceo de carga</strong>: Distribución del tráfico entre múltiples servidores.</li>
-        <li><strong>Planes de recuperación ante desastres</strong>: Para restaurar servicios rápidamente.</li>
-    </ul>
-</section>
-
-<section id="protocolos-seguridad">
-    <h2>4. Protocolos de Seguridad</h2>
-    <p>Varios protocolos estándar implementan medidas de seguridad para teleprocesos:</p>
-    
-    <h3>Para Comunicaciones Web</h3>
-    <p>Protegen la transmisión de datos en aplicaciones web y APIs:</p>
-    <div class="code-block">
-        # HTTPS (HTTP sobre TLS/SSL)
-        - Cifra la comunicación entre navegador y servidor
-        - Autentica el servidor (y opcionalmente el cliente)
-        - Protege contra espionaje y manipulación
-
-        # OAuth 2.0 / OpenID Connect
-        - Protocolos de autorización y autenticación para APIs
-        - Permite acceso delegado seguro a recursos
-    </div>
-    
-    <h3>Para Redes Privadas Virtuales (VPN)</h3>
-    <p>Crean túneles seguros a través de redes públicas:</p>
-    <ul>
-        <li><strong>IPsec</strong>: Conjunto de protocolos para comunicaciones seguras a nivel de red.</li>
-        <li><strong>OpenVPN</strong>: Solución VPN de código abierto basada en SSL/TLS.</li>
-        <li><strong>WireGuard</strong>: Protocolo VPN moderno, más simple y rápido.</li>
-    </ul>
-    
-    <h3>Para Acceso Remoto Seguro</h3>
-    <p>Mejoras de seguridad sobre protocolos básicos:</p>
-    <div class="code-block">
-        # SSH con autenticación por clave pública
-        1. Generar par de claves (pública/privada):
-           ssh-keygen -t rsa -b 4096
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teleprocesos: Control Remoto y Seguridad de Datos</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #f9f9f9;
+        }
         
-        2. Copiar clave pública al servidor:
-           ssh-copy-id usuario@servidor
+        .header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
         
-        3. Deshabilitar autenticación por contraseña:
-           (En /etc/ssh/sshd_config: PasswordAuthentication no)
+        .student-info {
+            text-align: left;
+        }
+        
+        .materia {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #3498db;
+        }
+        
+        .indice {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .indice h2 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        
+        .indice ul {
+            padding-left: 20px;
+        }
+        
+        .indice li {
+            margin-bottom: 8px;
+        }
+        
+        .indice a {
+            text-decoration: none;
+            color: #3498db;
+        }
+        
+        .indice a:hover {
+            text-decoration: underline;
+        }
+        
+        section {
+            background-color: #fff;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        h2 {
+            color: #2c3e50;
+            border-left: 4px solid #3498db;
+            padding-left: 10px;
+        }
+        
+        .volver-indice {
+            text-align: center;
+            margin-top: 30px;
+        }
+        
+        .volver-indice a {
+            background-color: #3498db;
+            color: white;
+            padding: 8px 15px;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .volver-indice a:hover {
+            background-color: #2980b9;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+        
+        .code-block {
+            background-color: #f4f4f4;
+            border-left: 4px solid #3498db;
+            padding: 15px;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+            border-radius: 0 5px 5px 0;
+            overflow-x: auto;
+        }
+        
+        .note {
+            background-color: #e7f3fe;
+            border-left: 4px solid #2196F3;
+            padding: 10px 15px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="student-info">
+            <p><strong>Jonathan Blanco</strong></p>
+            <p>Cédula: 30483682</p>
+        </div>
     </div>
-</section>
-
-<section id="mejores-practicas">
-    <h2>5. Mejores Prácticas</h2>
     
-    <h3>Para Implementaciones de Control Remoto</h3>
-    <ul>
-        <li><strong>Principio del menor privilegio</strong>: Otorgar solo los permisos necesarios para cada usuario/rol.</li>
-        <li><strong>Autenticación multifactor (MFA)</strong>: Requerir al menos dos formas de verificación.</li>
-        <li><strong>Registro y monitoreo (Logging)</strong>: Mantener registros detallados de todas las sesiones remotas.</li>
-        <li><strong>Actualizaciones periódicas</strong>: Mantener sistemas y software actualizados con los últimos parches de seguridad.</li>
-    </ul>
+    <div class="materia">Teleprocesos</div>
+    <h1>Control Remoto y Seguridad de Datos</h1>
     
-    <h3>Para la Seguridad de Datos</h3>
-    <ul>
-        <li><strong>Cifrado end-to-end</strong>: Datos cifrados desde el origen hasta el destino.</li>
-        <li><strong>Segmentación de red</strong>: Aislar sistemas críticos en segmentos de red separados.</li>
-        <li><strong>Copias de seguridad cifradas</strong>: Realizar backups periódicos y almacenarlos de forma segura.</li>
-        <li><strong>Evaluaciones de seguridad regulares</strong>: Penetration testing y auditorías de seguridad.</li>
-    </ul>
-    
-    <h3>Ejemplo de Configuración Segura para Servicio SSH</h3>
-    <div class="code-block">
-        # /etc/ssh/sshd_config - Configuración recomendada
-        Port 2222                          # Cambiar puerto predeterminado
-        PermitRootLogin no                 # No permitir acceso directo como root
-        PasswordAuthentication no          # Solo autenticación por clave
-        MaxAuthTries 3                     # Intentos máximos de autenticación
-        ClientAliveInterval 300           # Desconectar sesiones inactivas
-        ClientAliveCountMax 2
-        AllowUsers usuario1 usuario2      # Solo usuarios específicos
+    <div class="indice">
+        <h2>Índice</h2>
+        <ul>
+            <li><a href="#introduccion">1. Introducción a los Teleprocesos</a></li>
+            <li><a href="#control-remoto">2. Tecnologías de Control Remoto</a></li>
+            <li><a href="#seguridad-datos">3. Seguridad de Datos en Teleprocesos</a></li>
+            <li><a href="#protocolos-seguridad">4. Protocolos de Seguridad</a></li>
+            <li><a href="#mejores-practicas">5. Mejores Prácticas</a></li>
+            <li><a href="#conclusion">6. Conclusión</a></li>
+        </ul>
     </div>
-</section>
+    
+    <section id="introduccion">
+        <h2>1. Introducción a los Teleprocesos</h2>
+        <p>Los teleprocesos se refieren al tratamiento de información a distancia, donde los datos son transmitidos a través de redes de comunicación para ser procesados en un sistema remoto. Esta disciplina combina tecnologías de telecomunicaciones y procesamiento de datos para permitir la interacción entre usuarios y sistemas geográficamente dispersos.</p>
+        <p>El control remoto y la seguridad de datos son dos pilares fundamentales en este campo, ya que permiten operar sistemas de manera segura y confiable sobre redes potencialmente inseguras como Internet.</p>
+    </section>
+    
+    <section id="control-remoto">
+        <h2>2. Tecnologías de Control Remoto</h2>
+        <p>El control remoto permite a usuarios administrar sistemas, dispositivos o redes desde una ubicación diferente a la física del recurso. Se implementa a través de diversas tecnologías y protocolos.</p>
+        
+        <h3>Protocolos de Acceso Remoto</h3>
+        <p>Estos protocolos establecen las reglas para la comunicación entre el cliente y el servidor remoto:</p>
+        <ul>
+            <li><strong>SSH (Secure Shell)</strong>: Protocolo cifrado para acceso seguro a sistemas Unix/Linux.</li>
+            <li><strong>RDP (Remote Desktop Protocol)</strong>: Protocolo propietario de Microsoft para control de escritorio remoto.</li>
+            <li><strong>VNC (Virtual Network Computing)</strong>: Sistema de visualización de escritorio remoto de plataforma cruzada.</li>
+            <li><strong>Telnet</strong>: Protocolo más antiguo y no seguro, actualmente desaconsejado.</li>
+        </ul>
+        
+        <h3>Arquitecturas de Control Remoto</h3>
+        <p>Existen dos modelos principales de arquitectura para sistemas de control remoto:</p>
+        <div class="code-block">
+            # Modelo Cliente-Servidor (ejemplo conceptual)
+            Cliente (Solicitud) → Red → Servidor (Procesamiento)
+                          ↑                                   ↓
+            Cliente (Respuesta) ← Red ← Servidor (Resultados)
 
-<section id="conclusion">
-    <h2>6. Conclusión</h2>
-    <p>El control remoto y la seguridad de datos son componentes esenciales e interrelacionados en el campo de los teleprocesos. Las tecnologías de acceso remoto permiten una administración flexible y eficiente de sistemas distribuidos, pero introducen vectores de ataque que deben mitigarse mediante robustas medidas de seguridad.</p>
-    <p>La implementación exitosa de soluciones de teleprocesos requiere un equilibrio entre funcionalidad, usabilidad y seguridad. Esto se logra mediante la selección apropiada de protocolos, la implementación de arquitecturas seguras por diseño, y la adhesión a mejores prácticas de la industria que evolucionan constantemente para contrarrestar nuevas amenazas.</p>
-    <p>El futuro de los teleprocesos continuará enfocándose en desarrollar controles remotos más intuitivos y seguros, con tendencias hacia la autenticación sin contraseña, el cifrado cuántico-resistente y la gestión de acceso basada en cero confianza (Zero Trust).</p>
-</section>
+            # Modelo Peer-to-Peer (P2P)
+            Nodo A ↔ Red ↔ Nodo B
+            (Ambos pueden actuar como cliente y servidor)
+        </div>
+        
+        <div class="note">
+            <strong>Nota:</strong> La elección del protocolo y arquitectura depende de factores como la seguridad requerida, el tipo de sistema operativo, el ancho de banda disponible y la latencia tolerable.
+        </div>
+    </section>
+    
+    <section id="seguridad-datos">
+        <h2>3. Seguridad de Datos en Teleprocesos</h2>
+        <p>La seguridad de los datos transmitidos y procesados remotamente es crítica. Los principales aspectos a considerar son:</p>
+        
+        <h3>Confidencialidad</h3>
+        <p>Garantizar que la información solo sea accesible a personas autorizadas. Se logra mediante:</p>
+        <ul>
+            <li><strong>Cifrado de datos</strong>: Transformación de datos legibles (texto plano) en forma ilegible (texto cifrado).</li>
+            <li><strong>Control de acceso</strong>: Mecanismos de autenticación y autorización robustos.</li>
+        </ul>
+        
+        <h3>Integridad</h3>
+        <p>Asegurar que los datos no sean alterados durante la transmisión o almacenamiento. Técnicas comunes:</p>
+        <ul>
+            <li><strong>Funciones Hash</strong>: Como SHA-256 para verificar la integridad de los datos.</li>
+            <li><strong>Firmas digitales</strong>: Para autenticar el origen y verificar la integridad.</li>
+        </ul>
+        
+        <h3>Disponibilidad</h3>
+        <p>Garantizar que los sistemas y datos estén accesibles cuando se necesiten. Estrategias:</p>
+        <ul>
+            <li><strong>Redundancia</strong>: Sistemas duplicados para evitar puntos únicos de fallo.</li>
+            <li><strong>Balanceo de carga</strong>: Distribución del tráfico entre múltiples servidores.</li>
+            <li><strong>Planes de recuperación ante desastres</strong>: Para restaurar servicios rápidamente.</li>
+        </ul>
+    </section>
+    
+    <section id="protocolos-seguridad">
+        <h2>4. Protocolos de Seguridad</h2>
+        <p>Varios protocolos estándar implementan medidas de seguridad para teleprocesos:</p>
+        
+        <h3>Para Comunicaciones Web</h3>
+        <p>Protegen la transmisión de datos en aplicaciones web y APIs:</p>
+        <div class="code-block">
+            # HTTPS (HTTP sobre TLS/SSL)
+            - Cifra la comunicación entre navegador y servidor
+            - Autentica el servidor (y opcionalmente el cliente)
+            - Protege contra espionaje y manipulación
 
-<div class="volver-indice">
-    <a href="#">Volver al Índice</a>
-</div>
-
-<footer>
-    <p>Informe sobre Teleprocesos: Control Remoto y Seguridad de Datos - Jonathan Blanco</p>
-</footer>
+            # OAuth 2.0 / OpenID Connect
+            - Protocolos de autorización y autenticación para APIs
+            - Permite acceso delegado seguro a recursos
+        </div>
+        
+        <h3>Para Redes Privadas Virtuales (VPN)</h3>
+        <p>Crean túneles seguros a través de redes públicas:</p>
+        <ul>
+            <li><strong>IPsec</strong>: Conjunto de protocolos para comunicaciones seguras a nivel de red.</li>
+            <li><strong>OpenVPN</strong>: Solución VPN de código abierto basada en SSL/TLS.</li>
+            <li><strong>WireGuard</strong>: Protocolo VPN moderno, más simple y rápido.</li>
+        </ul>
+        
+        <h3>Para Acceso Remoto Seguro</h3>
+        <p>Mejoras de seguridad sobre protocolos básicos:</p>
+        <div class="code-block">
+            # SSH con autenticación por clave pública
+            1. Generar par de claves (pública/privada):
+               ssh-keygen -t rsa -b 4096
+            
+            2. Copiar clave pública al servidor:
+               ssh-copy-id usuario@servidor
+            
+            3. Deshabilitar autenticación por contraseña:
+               (En /etc/ssh/sshd_config: PasswordAuthentication no)
+        </div>
+    </section>
+    
+    <section id="mejores-practicas">
+        <h2>5. Mejores Prácticas</h2>
+        
+        <h3>Para Implementaciones de Control Remoto</h3>
+        <ul>
+            <li><strong>Principio del menor privilegio</strong>: Otorgar solo los permisos necesarios para cada usuario/rol.</li>
+            <li><strong>Autenticación multifactor (MFA)</strong>: Requerir al menos dos formas de verificación.</li>
+            <li><strong>Registro y monitoreo (Logging)</strong>: Mantener registros detallados de todas las sesiones remotas.</li>
+            <li><strong>Actualizaciones periódicas</strong>: Mantener sistemas y software actualizados con los últimos parches de seguridad.</li>
+        </ul>
+        
+        <h3>Para la Seguridad de Datos</h3>
+        <ul>
+            <li><strong>Cifrado end-to-end</strong>: Datos cifrados desde el origen hasta el destino.</li>
+            <li><strong>Segmentación de red</strong>: Aislar sistemas críticos en segmentos de red separados.</li>
+            <li><strong>Copias de seguridad cifradas</strong>: Realizar backups periódicos y almacenarlos de forma segura.</li>
+            <li><strong>Evaluaciones de seguridad regulares</strong>: Penetration testing y auditorías de seguridad.</li>
+        </ul>
+        
+        <h3>Ejemplo de Configuración Segura para Servicio SSH</h3>
+        <div class="code-block">
+            # /etc/ssh/sshd_config - Configuración recomendada
+            Port 2222                          # Cambiar puerto predeterminado
+            PermitRootLogin no                 # No permitir acceso directo como root
+            PasswordAuthentication no          # Solo autenticación por clave
+            MaxAuthTries 3                     # Intentos máximos de autenticación
+            ClientAliveInterval 300           # Desconectar sesiones inactivas
+            ClientAliveCountMax 2
+            AllowUsers usuario1 usuario2      # Solo usuarios específicos
+        </div>
+    </section>
+    
+    <section id="conclusion">
+        <h2>6. Conclusión</h2>
+        <p>El control remoto y la seguridad de datos son componentes esenciales e interrelacionados en el campo de los teleprocesos. Las tecnologías de acceso remoto permiten una administración flexible y eficiente de sistemas distribuidos, pero introducen vectores de ataque que deben mitigarse mediante robustas medidas de seguridad.</p>
+        <p>La implementación exitosa de soluciones de teleprocesos requiere un equilibrio entre funcionalidad, usabilidad y seguridad. Esto se logra mediante la selección apropiada de protocolos, la implementación de arquitecturas seguras por diseño, y la adhesión a mejores prácticas de la industria que evolucionan constantemente para contrarrestar nuevas amenazas.</p>
+        <p>El futuro de los teleprocesos continuará enfocándose en desarrollar controles remotos más intuitivos y seguros, con tendencias hacia la autenticación sin contraseña, el cifrado cuántico-resistente y la gestión de acceso basada en cero confianza (Zero Trust).</p>
+    </section>
+    
+    <div class="volver-indice">
+        <a href="#">Volver al Índice</a>
+    </div>
+    
+    <footer>
+        <p>Informe sobre Teleprocesos: Control Remoto y Seguridad de Datos - Jonathan Blanco</p>
+    </footer>
+</body>
+</html>
